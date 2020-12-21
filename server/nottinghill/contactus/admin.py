@@ -10,4 +10,7 @@ class ContactAdmin(admin.ModelAdmin):
 admin.site.register(Contact,ContactAdmin)
 admin.site.unregister(auth.models.User)
 admin.site.unregister(auth.models.Group)
+admin.site.site_header = "NHL"
+admin.site.site_title = "NHL Admin panel"
+admin.site.index_title = "Notting Hill Law"
 # admin.site.unregister()

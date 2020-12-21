@@ -15,7 +15,7 @@ export class App extends Component {
     landingPageData: {},
   }
   getlandingPageData() {
-    this.setState({landingPageData : JsonData})
+    this.setState({ landingPageData: JsonData })
   }
 
   componentDidMount() {

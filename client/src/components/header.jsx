@@ -24,7 +24,7 @@ export class Header extends Component {
                   </a>{" "}
                 </div>
                 <div className="col-md-6 col-sm-12 col-md-offset-2 ">
-                  <img src="/img/intro-logo.png" className="intro-logo" alt=""/>
+                  <img src="/img/intro-logo.png" className="intro-logo" alt="" />
                 </div>
               </div>
             </div>

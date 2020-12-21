@@ -4,6 +4,7 @@ export class Navigation extends Component {
   render() {
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+
         <div className="container">
           <div className="navbar-header">
             <button
@@ -19,7 +20,15 @@ export class Navigation extends Component {
               <span className="icon-bar"></span>{" "}
             </button>
             <a className="navbar-brand page-scroll" href="#page-top">
-              Notting Hill Law
+              {/* <img src="/img/nhllogo.png" alt="logo" className='logo' /> */}
+              <h5 className="mobile__heading">Notiing Hill Law</h5>
+              <div className='logo__heading'>
+                <div className='logo'>
+                  <span className=''>NHL</span>
+                </div>
+                <h5>Notting Hill Law</h5>
+                <h6>Immigration Law simplified</h6>
+              </div>
             </a>{" "}
           </div>
 
