@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://localhost:8080",
+    "http://localhost:8000",
 ]
 ROOT_URLCONF = 'nottinghill.urls'
 
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'nottinghill.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
     }
 }
 
