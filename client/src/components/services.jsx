@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export class Services extends Component {
   render() {
@@ -14,15 +15,14 @@ export class Services extends Component {
           <div className="row">
             {this.props.data
               ? this.props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-4">
+                <div key={`${d.name}-${i}`} className="col-md-3 d-flex align-items-center">
                   {" "}
-                  <i className={d.icon}></i>
+                  <Link to={d.path}>
+                  <img src={d.icon} className='service__icon' alt=""/>
                   <div className="service-desc">
                     <h3>{d.name}</h3>
-                    <p>{d.text.split(" ")[0]}</p>
-                    <p>{d.text.split(" ")[1]}</p>
-                    <p>{d.text.split(" ")[2]}</p>
                   </div>
+                  </Link>
                 </div>
               ))
               : "loading"}
