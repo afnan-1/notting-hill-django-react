@@ -74,6 +74,11 @@ export class Navigation extends Component {
                     Contact
                   </a>
                 </li>
+                <li>
+                  <a href="http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/admin">
+                    Admin
+                  </a>
+                </li>
               </ul>
             ) : (
               <ul className="nav navbar-nav navbar-right">
@@ -112,6 +117,9 @@ export class Navigation extends Component {
                   Contact
                 </Link>
               </li>
+              <a href="http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/admin">
+                    Admin
+              </a>
             </ul>
             )}
           </div>
