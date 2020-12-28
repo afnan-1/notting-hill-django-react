@@ -112,7 +112,7 @@ __pypackages__/
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
-
+notthinghillaw.pem
 # SageMath parsed files
 *.sage.py
 
@@ -125,7 +125,7 @@ ENV/
 env.bak/
 venv.bak/
 pythonenv*
-
+.notthinghillaw.pem
 # Spyder project settings
 .spyderproject
 .spyproject
