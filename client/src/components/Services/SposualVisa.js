@@ -23,7 +23,7 @@ function SposualVisa() {
       </div>
       <ServiceRightSideInfo 
       heading='Key requirments:'
-      point1="A genuine relationship between the applicant and the UK sponser"
+      point1="A genuine relationship between the applicant and the UK sponsor"
       point2='Annual income of at least £18,600 (salaried or non-salaried)'
       point3='UK sponsor has adequate accomodation'
       point4='Be able to speak and understand English to a certain level' />

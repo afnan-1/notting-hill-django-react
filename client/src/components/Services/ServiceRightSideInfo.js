@@ -1,6 +1,7 @@
 import React from "react";
-
+import { Link, useHistory } from "react-router-dom";
 function ServiceRightSideInfo(props) {
+  const history = useHistory();
   const style = {
     marginLeft: props.workvisa,
   };
@@ -16,15 +17,14 @@ function ServiceRightSideInfo(props) {
           <img src="/nottingimg/7.png" className="rightside__img" alt="" />
           <h4>{props.point2}</h4>
         </div>
+      {props.visatype=='investor' || props.visatype=='temporary' || props.visatype=='hongkong'?
+      '':
+        <div className="point1">
+          <img src="/nottingimg/8.png" className="rightside__img" alt="" />
+          <h4>{props.point3}</h4>
+        </div>
+      }
         {props.visatype ? (
-          ""
-        ) : (
-          <div className="point1">
-            <img src="/nottingimg/8.png" className="rightside__img" alt="" />
-            <h4>{props.point3}</h4>
-          </div>
-        )}
-        {props.workvisa ? (
           ""
         ) : (
           <div className="point1">
@@ -32,7 +32,13 @@ function ServiceRightSideInfo(props) {
             <h4>{props.point4}</h4>
           </div>
         )}
-        <button className="btn btn-primary">Book Free 30 min Call</button>
+
+        <button
+          className="btn btn-primary"
+          onClick={() => history.push("/contactus")}
+        >
+          Book Free 30 min Call
+        </button>
       </div>
     </div>
   );

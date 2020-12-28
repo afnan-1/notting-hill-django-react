@@ -57,7 +57,8 @@
         },
         {
             "icon": "/nottingimg/hongkong.png",
-            "name": "Hong Kong"
+            "name": "Hong Kong",
+            "path": "/hongkong"
         }
 
 
@@ -129,12 +130,12 @@
         {
             "icon": "fa fa-refresh",
             "title": "Step 2",
-            "text": "Free 30 minutes, consultation"
+            "text": "Free 30 minute call"
         },
         {
             "icon": "fa fa-file-text",
             "title": "Step 3",
-            "text": "Immigration matter resolved. Simple."
+            "text": "Get your immigration matter resolved. Simple!"
         }
     ]
 }

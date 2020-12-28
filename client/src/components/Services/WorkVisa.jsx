@@ -7,24 +7,34 @@ function WorkVisa(props) {
       <div className="spousalvisa col-md-5">
         <div className="main__heading">
           <div className="service__heading">
-            <h1>{props.title}</h1>
+            {props.visatype == "hongkong" ? (
+              <h1 style={{ fontSize: "2.5em" }}>{props.title}</h1>
+            ) : (
+              <h1>{props.title}</h1>
+            )}
           </div>
           <div className="service__headingtext">
             <h3>{props.headingMain}</h3>
-            <p className="siteline">
-            {props.headingParagraph}
-            </p>
+            <p className="siteline">{props.headingParagraph}</p>
           </div>
         </div>
         <div className="service__imgs">
-          <img src={`/nottingimg/${props.img}.png`} className="spousalimg" alt="" />
+          <img
+            src={`/nottingimg/${props.img}.png`}
+            className="spousalimg"
+            alt=""
+          />
         </div>
       </div>
-      <ServiceRightSideInfo workvisa='140px' heading={props.heading}
-      point1={props.point1}
-      point2={props.point2}
-      point3={props.point3}
-      visatype={props.visatype} />
+      <ServiceRightSideInfo
+        workvisa="140px"
+        heading={props.heading}
+        point1={props.point1}
+        point2={props.point2}
+        point3={props.point3}
+        point4={props.point4}
+        visatype={props.visatype}
+      />
     </div>
   );
 }

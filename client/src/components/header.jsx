@@ -17,7 +17,7 @@ export class Header extends Component {
                     We provide quick and easy expert legal advice.
                   </p>
                   <a
-                    href="#features"
+                    href="#contact"
                     className="btn btn-custom btn-lg page-scroll"
                   >
                     Get in touch

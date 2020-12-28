@@ -20,7 +20,7 @@ export class Navigation extends Component {
             </button>
             <a className="navbar-brand page-scroll" href="#page-top">
               {/* <img src="/img/nhllogo.png" alt="logo" className='logo' /> */}
-              <Link to="/" style={{ textDecoration: "None", color: "inherit", }}>
+              <Link to="/" style={{ textDecoration: "None", color: "inherit" }}>
                 <h5 className="mobile__heading">Notiing Hill Law</h5>
                 <div className="logo__heading">
                   <div className="logo">
@@ -37,24 +37,17 @@ export class Navigation extends Component {
             className="collapse navbar-collapse"
             id="bs-example-navbar-collapse-1"
           >
-            {this.props.navType ? (
-              <ul className="nav navbar-nav navbar-right">
-                <li>
-                  <a href="#header" className="page-scroll">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#features" className="page-scroll">
-                    Process
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="page-scroll">
-                    Services
-                  </a>
-                </li>
-                {/* <li>
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/process">Process</Link>
+              </li>
+              <li>
+                <Link to="/service">Service</Link>
+              </li>
+              {/* <li>
                 <a href="#portfolio" className="page-scroll">
                   Gallery
                 </a>
@@ -64,64 +57,20 @@ export class Navigation extends Component {
                   Testimonials
                 </a>
               </li> */}
-                {/* <li>
+              {/* <li>
                 <a href="#team" className="page-scroll">
                   Team
                 </a>
               </li> */}
-                <li>
-                  <a href="#contact" className="page-scroll">
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a href="http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/admin">
-                    Admin
-                  </a>
-                </li>
-              </ul>
-            ) : (
-              <ul className="nav navbar-nav navbar-right">
               <li>
-                <Link to='/#header' className="page-scroll">
-                  Home
-                </Link>
+                <Link to="/contactus">Contact</Link>
               </li>
               <li>
-                <Link to='/#features' className="page-scroll">
-                  Process
-                </Link>
+                <a href="http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/admin">
+                  Admin
+                </a>
               </li>
-              <li>
-                <Link to='/#services' className="page-scroll">
-                  Services
-                </Link>
-              </li>
-              {/* <li>
-              <a href="#portfolio" className="page-scroll">
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a href="#testimonials" className="page-scroll">
-                Testimonials
-              </a>
-            </li> */}
-              {/* <li>
-              <a href="#team" className="page-scroll">
-                Team
-              </a>
-            </li> */}
-              <li>
-                <Link to="/#contact" className="page-scroll">
-                  Contact
-                </Link>
-              </li>
-              <a href="http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/admin">
-                    Admin
-              </a>
             </ul>
-            )}
           </div>
         </div>
       </nav>
