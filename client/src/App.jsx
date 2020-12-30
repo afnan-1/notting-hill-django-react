@@ -12,6 +12,7 @@ import JsonData from "./data/data.json";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SposualVisa from "./components/Services/SposualVisa";
 import WorkVisa from "./components/Services/WorkVisa";
+import Footer from "./components/Footer";
 export class App extends Component {
   state = {
     landingPageData: {},
@@ -21,6 +22,7 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    document.title = "Notting Hill Law";
     this.getlandingPageData();
   }
 
@@ -52,9 +54,9 @@ export class App extends Component {
               headingParagraph="We will provide expert advice to see if you qualify for a Tier 2 Work Visa"
               headingMain="Do you want to work in the UK?"
               heading="Here are some of the requirements:"
-              point1="Your Employer has given you a Certificate of Sponsarship"
+              point1="Your Employer has given you a Certificate of Sponsorship (CoS)"
               point2="Meet the english language requirement"
-              point3="Have enough fund to maintain yourself"
+              point3="Have enough funds to maintain yourself"
               visatype="workvisa"
             />
           </Route>
@@ -78,7 +80,7 @@ export class App extends Component {
               headingParagraph="Our specialists can provide you with expert advice to see if you qualify for a Tier 1 Entrepreneur Visa"
               headingMain="Do you want to start or invest in a buisness in the Uk?"
               heading="Here are some things you will need:"
-              point1="Access to £50k to invest*"
+              point1="Access to £200k to invest*"
               point2="Buisness Plan - should set out all buisness activities you intend to carry out"
               point3="Pass the 'Genuine Entrepreneur Test' conducted by the Home Office"
               point4="Meet the English language Requirement"
@@ -126,8 +128,8 @@ export class App extends Component {
             <WorkVisa
               img="flags"
               title="Honk Kong British Nationals (Overseas) BN(O) Visa"
-              headingParagraph="The Honk Kong BN(O) Visa applications open from 31 january 2021. To find out more, contact our specialist advisors."
-              headingMain="Can i settle in the Uk with BN(O) Visa?"
+              headingParagraph="The Hong Kong BN(O) Visa applications open from 31 january 2021. To find out more, contact our specialist advisors."
+              headingMain="Can I settle in the Uk with BN(O) Visa?"
               heading="Here are some of the requirements:"
               point1="You must be a BN(O) citizen residing in Hong Kong or the UK"
               point2="Must have a valid travel document"
@@ -144,6 +146,7 @@ export class App extends Component {
             <Features data={this.state.landingPageData.Features} />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     );
   }

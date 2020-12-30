@@ -90,6 +90,8 @@ hr {
 /* Navigation */
 #menu {
 	padding: 15px;
+	padding-left: 50px !important;
+	padding-right: 50px !important;
 	transition: all 0.8s;
 }
 #menu.navbar-default {
@@ -105,6 +107,7 @@ hr {
 	font-size: 24px;
 	font-weight: 700;
 	color: #3441bb;
+	margin-left: -20px;
 	text-transform: uppercase;
 }
 #menu.navbar-default .navbar-nav > li > a {
@@ -116,6 +119,9 @@ hr {
 	padding: 8px 2px;
 	border-radius: 0;
 	margin: 9px 20px 0 20px;
+}
+.navbar-header{
+	margin-right: -30px !important;
 }
 #menu.navbar-default .navbar-nav > li > a:after {
 	display: block;
@@ -267,10 +273,11 @@ header .intro-text {
 
 /* Features Section */
 #features {
-	padding: 100px 0;
+	padding: 160px 0;
 	background: #f6f6f6;
-	/* margin-top:-120px; */
-	background:url(../img/intro-bg0.png)
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image:url(../img/intro-bg0.png);
 }
 #features i.fa {
 	font-size: 38px;
@@ -339,6 +346,7 @@ header .intro-text {
 /* Services Section */
 #services {
 	padding: 100px 0;
+	/* height: 100vh; */
 	background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
 	color: #fff;
 }
@@ -610,12 +618,17 @@ color: #777;
 }
 /* Footer Section*/
 #footer {
-	background: #f6f6f6;
-	padding: 30px 0;
+	background: #352e2e;
+	padding: 20px 0 10px 0;
 }
 #footer p {
 	color: #888;
 	font-size: 14px;
+	/* margin: 0; */
+}
+.footer-text{
+	margin: 0 !important;
+	padding: 0 !important;
 }
 #footer a {
 	color: #608dfd;
@@ -623,11 +636,20 @@ color: #777;
 #footer a:hover {
 	border-bottom: 2px solid #608dfd;
 }
-
+.fff{
+	margin-bottom: 10px;
+	margin-top: -5px;
+}
 @media (max-width: 768px) {
 #about img {
 	margin: 50px 0;
 }
+#footer p {
+	color: #888;
+	font-size: 11px;
+	/* margin: 0; */
+}
+
 }
 .contact__form{
 	border-radius: 7px !important;
@@ -677,10 +699,11 @@ color: #418bdb !important;
 .points{
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	/* align-items: center; */
 }
 .points button{
-	margin-top: 20px;
+	margin-top: 30px;
+	margin: 0 auto;
 	width: 50%;
 }
 .point1 {
@@ -705,14 +728,23 @@ color: #418bdb;
 	width: 100%;
 	margin-top: 20px;
 }
+.social ul li{
+	margin-top: 10px !important;
+}
 @media only screen and (max-width: 600px) {
 	.header-text{
 		padding-top:230px;
+	}
+	.fff{
+		padding-top:5px ;
+		width: 60px;
+		margin-right: -10px;
 	}
 	.mobile__heading{
 		display: block;
 		font-size:2rem;
 		margin-top:0px;
+		margin-left: -25px;
 	}
 	.main__heading{
 		margin-left: 20px;

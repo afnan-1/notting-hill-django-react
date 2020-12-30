@@ -4,7 +4,7 @@ export class Navigation extends Component {
   render() {
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-        <div className="container">
+        <div className="container-fluid">
           <div className="navbar-header">
             <button
               type="button"
@@ -19,7 +19,6 @@ export class Navigation extends Component {
               <span className="icon-bar"></span>{" "}
             </button>
             <a className="navbar-brand page-scroll" href="#page-top">
-              {/* <img src="/img/nhllogo.png" alt="logo" className='logo' /> */}
               <Link to="/" style={{ textDecoration: "None", color: "inherit" }}>
                 <h5 className="mobile__heading">Notiing Hill Law</h5>
                 <div className="logo__heading">
@@ -64,11 +63,6 @@ export class Navigation extends Component {
               </li> */}
               <li>
                 <Link to="/contactus">Contact</Link>
-              </li>
-              <li>
-                <a href="http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/admin">
-                  Admin
-                </a>
               </li>
             </ul>
           </div>

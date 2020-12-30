@@ -5,7 +5,7 @@ export class Services extends Component {
   render() {
     return (
       <div id="services" className="text-center">
-        <div className="container">
+        <div className="container ff">
           <div className="section-title">
             <h2>Immigration law Services.</h2>
             {/* <p>

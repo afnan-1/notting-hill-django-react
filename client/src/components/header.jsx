@@ -13,9 +13,7 @@ export class Header extends Component {
                     Immigration?Simple.
                     <span></span>
                   </h1>
-                  <p>
-                    We provide quick and easy expert legal advice.
-                  </p>
+                  <p>We provide quick and easy expert legal advice.</p>
                   <a
                     href="#contact"
                     className="btn btn-custom btn-lg page-scroll"
@@ -24,7 +22,11 @@ export class Header extends Component {
                   </a>{" "}
                 </div>
                 <div className="col-md-6 col-sm-12 col-md-offset-2 ">
-                  <img src="/img/intro-logo.png" className="intro-logo" alt="" />
+                  <img
+                    src="/img/intro-logo.png"
+                    className="intro-logo"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>

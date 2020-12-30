@@ -6,7 +6,7 @@ function ServiceRightSideInfo(props) {
     marginLeft: props.workvisa,
   };
   return (
-    <div className={`rightside_info col-md-5 col-sm-12`} style={style}>
+    <div className={`rightside_info col-md-5 col-sm-12 col-xl-6`} style={style}>
       <h1>{props.heading}</h1>
       <div className="points">
         <div className="point1">

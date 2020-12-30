@@ -115,17 +115,17 @@
         }
     ],
     "Contact": {
-        "address": "4321 California St, San Francisco, CA 12345 ",
-        "phone": "+1 123 456 1234",
-        "email": "info@company.com",
-        "facebook": "fb.com",
-        "twitter": "twitter.com",
-        "youtube": "youtube.com"
+        "address": "International House, 12 Constancee Street, London, E16 2DQ ",
+        "phone": "12432552",
+        "email": "info@nottinghilllaw.com",
+        "facebook": "https://facebook.com/NottingHilllaw",
+        "twitter": "https://twitter.com/LawNotting",
+        "youtube": "https://instagram.com/notting_hill_law"
     },
     "Features": [{
             "icon": "fa fa-whatsapp",
             "title": "Step 1",
-            "text": "Contact us via phone, email or our chatbot"
+            "text": "Contact us via phone or email"
         },
         {
             "icon": "fa fa-refresh",
