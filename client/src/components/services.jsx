@@ -15,17 +15,22 @@ export class Services extends Component {
           <div className="row">
             {this.props.data
               ? this.props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className="col-md-3 d-flex align-items-center">
-                  {" "}
-                  <Link to={d.path}>
-                  <img src={d.icon} className='service__icon' alt=""/>
-                  <div className="service-desc">
-                    <h3>{d.name}</h3>
+                  <div
+                    key={`${d.name}-${i}`}
+                    className="col-md-4 d-flex align-items-center"
+                  >
+                    {" "}
+                    <Link to={d.path}>
+                      <img src={d.icon} className="service__icon" alt="" />
+                      <div className="service-desc">
+                        <h3>{d.name}</h3>
+                      </div>
+                    </Link>
                   </div>
-                  </Link>
-                </div>
-              ))
+                ))
               : "loading"}
+
+             
           </div>
         </div>
       </div>

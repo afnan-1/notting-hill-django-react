@@ -8,23 +8,69 @@ $(function() {
         submitSuccess: function($form, event) {
             event.preventDefault(); // prevent default submit behaviour
             // get values from FORM
-            var name = $("input#name").val();
+            var firstname = $("input#firstname").val();
+            var lastname = $("input#lastname").val();
             var email = $("input#email").val();
             var message = $("textarea#message").val();
             var telephone = $("input#telephone").val();
-            var firstName = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
-            if (firstName.indexOf(' ') >= 0) {
-                firstName = name.split(' ').slice(0, -1).join(' ');
-            }
+            var country = $("input#country").val();
+            var city = $("input#city").val();
+            var innovator= $("input#innovator").is( ":checked")
+            var investor = $("input#investor").is( ":checked")
+            var startup = $("input#startup").is( ":checked")
+            var spouse = $("input#spouse").is( ":checked")
+            var skillwork = $("input#skillwork").is( ":checked")
+            var temporarywork = $("input#temporarywork").is( ":checked")
+            var student = $("input#student").is( ":checked")
+            var euss = $("input#euss").is( ":checked")
+            var hongkong = $("input#hongkong").is( ":checked")
+            var other = $("input#other").is( ":checked")
+            var yyyy = $("input#yyyy").val();
+            var dd = $("input#dd").val();
+            var mm = $("input#mm").val();
+            var time = $("input#time").val();
+            var ticketname = $("input#ticketname").val();
+            var ticketdesc = $("input#ticketdesc").val();
+
+
+
+
+
+
+
+            // var firstName = name; // For Success/Failure Message
+            // // Check for white space in name for Success/Fail message
+            // if (firstName.indexOf(' ') >= 0) {
+            //     firstName = name.split(' ').slice(0, -1).join(' ');
+            // }
             $.ajax({
-                url: "http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/contactus/",
+                // url: "http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/contactus/",
+                url:'http://localhost:8000/contactus/',
                 type: "POST",
                 data: {
-                    name: name,
+                    firstname: firstname,
+                    lastname:lastname,
                     email: email,
                     telephone:telephone,
-                    message: message
+                    message: message,
+                    country:country,
+                    city:city,
+                    innovator:innovator,
+                    investor:investor,
+                    startup:startup,
+                    spouse:spouse,
+                    skillwork:skillwork,
+                    temporarywork:temporarywork,
+                    student:student,
+                    euss:euss,
+                    hongkong:hongkong,
+                    other:other,
+                    yyyy:yyyy,
+                    dd:dd,
+                    mm:mm,
+                    time:time,
+                    ticketdesc:ticketdesc,
+                    ticketname:ticketname
                 },
                 cache: false,
                 success: function() {

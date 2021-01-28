@@ -13,7 +13,7 @@ function SposualVisa() {
             <h3>Let us reunite you with your spouse!</h3>
             <p>
               Our expert legal advisors will guide you through the visa process
-              and make this experience hassle -free for you
+              and make this experience hassle-free for you
             </p>
           </div>
         </div>
@@ -26,7 +26,7 @@ function SposualVisa() {
       point1="A genuine relationship between the applicant and the UK sponsor"
       point2='Annual income of at least £18,600 (salaried or non-salaried)'
       point3='UK sponsor has adequate accomodation'
-      point4='Be able to speak and understand English to a certain level' />
+      point4='Meet the English Language requirement' />
     </div>
   );
 }

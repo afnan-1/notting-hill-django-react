@@ -7,6 +7,19 @@ body, html {
 	width: 100% !important;
 	height: 100% !important;
 }
+.check-1{
+	/* padding:0 !important; */
+	border-radius: 10px;
+	margin: 0 5px;
+	/* display: flex; */
+	flex-direction: column;
+	align-self: center;
+	/* background-color: white !important; */
+}
+.pl-2{
+	padding-left: 10px;
+	font-size: 15px;
+}
 h2, h3, h4 {
 	font-family: 'Raleway', sans-serif;
 }
@@ -273,6 +286,7 @@ header .intro-text {
 
 /* Features Section */
 #features {
+	height: 100vh;
 	padding: 160px 0;
 	background: #f6f6f6;
 	background-repeat: no-repeat;
@@ -541,11 +555,12 @@ header .intro-text {
 	background: #fff;
 }
 label {
-	font-size: 12px;
+	/* font-size: 12px;
 	font-weight: 400;
-	font-family: 'Open Sans', sans-serif;
-	float: left;
+	font-family: 'Open Sans', sans-serif; */
+	/* float: left; */
 }
+
 #contact .form-control {
 	display: block;
 	width: 100%;
@@ -619,7 +634,9 @@ color: #777;
 /* Footer Section*/
 #footer {
 	background: #352e2e;
+	bottom: 0 !important;
 	padding: 20px 0 10px 0;
+	width: 100%;
 }
 #footer p {
 	color: #888;
@@ -640,7 +657,14 @@ color: #777;
 	margin-bottom: 10px;
 	margin-top: -5px;
 }
+@media (max-width:1000px)
+{
+	#features {
+		height: auto !important;
+	}
+}
 @media (max-width: 768px) {
+
 #about img {
 	margin: 50px 0;
 }
@@ -658,6 +682,7 @@ color: #777;
 	padding-left: 30px;
 	color: #418bdb;
 	margin-top: 80px;
+	/* height: 100vh; */
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
@@ -735,10 +760,15 @@ color: #418bdb;
 	.header-text{
 		padding-top:230px;
 	}
+	
 	.fff{
 		padding-top:5px ;
 		width: 60px;
 		margin-right: -10px;
+	}
+	#menu.navbar-default {
+		padding-top: 10px;
+		padding-bottom: 7px;
 	}
 	.mobile__heading{
 		display: block;

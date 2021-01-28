@@ -20,7 +20,7 @@ export class Navigation extends Component {
             </button>
             <a className="navbar-brand page-scroll" href="#page-top">
               <Link to="/" style={{ textDecoration: "None", color: "inherit" }}>
-                <h5 className="mobile__heading">Notiing Hill Law</h5>
+                <h5 className="mobile__heading">Notting Hill Law</h5>
                 <div className="logo__heading">
                   <div className="logo">
                     <span className="">NHL</span>
@@ -44,7 +44,7 @@ export class Navigation extends Component {
                 <Link to="/process">Process</Link>
               </li>
               <li>
-                <Link to="/service">Service</Link>
+                <Link to="/service">Services</Link>
               </li>
               {/* <li>
                 <a href="#portfolio" className="page-scroll">

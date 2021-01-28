@@ -12,7 +12,7 @@ export class features extends Component {
       }
     }
     return (
-      <div id="features" style={{height:window.location.pathname==='/process'?'100vh':''}} className="text-center">
+      <div id="features"  className="text-center">
         <div className="container ff">
           <div className="col-md-10 col-md-offset-1 section-title">
             <h2>Our Process</h2>

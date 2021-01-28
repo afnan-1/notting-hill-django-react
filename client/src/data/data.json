@@ -27,8 +27,8 @@
         },
         {
             "icon": "/nottingimg/19.png",
-            "name": "Entrepreneur Visa",
-            "path": "/entrepreneurvisa"
+            "name": "Innovator Visa",
+            "path": "/innovatorvisa"
         },
         {
             "icon": "nottingimg/15.png",
@@ -58,6 +58,11 @@
         {
             "icon": "/nottingimg/hongkong.png",
             "name": "Hong Kong",
+            "path": "/hongkong"
+        },
+        {
+            "icon": "/nottingimg/hongkong.png",
+            "name": "Start-up Visa",
             "path": "/hongkong"
         }
 

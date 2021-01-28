@@ -13,11 +13,12 @@ function ServiceRightSideInfo(props) {
           <img src="/nottingimg/6.png" className="rightside__img" alt="" />
           <h4>{props.point1}</h4>
         </div>
+        {props.visatype=='temporary'?'':
         <div className="point1">
           <img src="/nottingimg/7.png" className="rightside__img" alt="" />
           <h4>{props.point2}</h4>
-        </div>
-      {props.visatype=='investor' || props.visatype=='temporary' || props.visatype=='hongkong'?
+        </div>}
+      {props.visatype=='investor' || props.visatype=='temporary' || props.visatype=='hongkong' || props.visatype=='euss'?
       '':
         <div className="point1">
           <img src="/nottingimg/8.png" className="rightside__img" alt="" />
