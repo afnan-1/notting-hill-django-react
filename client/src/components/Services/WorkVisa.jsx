@@ -27,13 +27,16 @@ function WorkVisa(props) {
         </div>
       </div>
       <ServiceRightSideInfo
-        workvisa="140px"
         heading={props.heading}
         point1={props.point1}
         point2={props.point2}
         point3={props.point3}
         point4={props.point4}
+        point5={props.point5}
         visatype={props.visatype}
+        innovation={props.innovation}
+        viability={props.viability}
+        scalibility={props.scalibility}
       />
     </div>
   );

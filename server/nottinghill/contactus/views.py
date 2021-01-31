@@ -1,20 +1,10 @@
 from .models import Contact
 from rest_framework import viewsets
 from .serializers import ContactSerializer
-# from django.core.mail import send_mail
-# from django.conf import settings
+from django.conf import settings
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
 # Create your views here.
-
-# def email_send(name,email,telephone,message):
-#     subject = 'Thank you for Contact us to our site'
-#     message = f'Sender Name: {name}\nMessage is: {message}.\nSender Email: {email}.\nSender Phone#: {telephone}'
-#     email_from = settings.EMAIL_HOST_USER
-#     recipient_list = [email,]
-#     send_mail( subject, message, email_from, recipient_list )
-#     return Response({'message':"Send to email",'success':True})
 @api_view(['POST',])
 def contact_us(request):
     first_name = request.data.get('firstname')
@@ -68,6 +58,5 @@ def contact_us(request):
     date = f'Date for call :{yyyy}/{mm}/{dd}'
     queryset = Contact(name=name,date=date,email=email,telephone=telephone,message=message,visa=visa,ticket_desc=ticketdesc,ticket_name=ticketname,time=time,country=country,city=city)
     queryset.save()
-    # email_send(name,email,telephone,message)
     return Response({"message": "Contact Created", "success": True})
     

@@ -93,8 +93,10 @@ function Contact(props) {
                       <p className="help-block text-danger"></p>
                     </div>
                   </div>
+                  
                   <div className="check-1">
                     <div className="col-md-7">
+                      <h5>Type of Visa</h5>
                       <div className="form-check">
                         <input
                           type="checkbox"

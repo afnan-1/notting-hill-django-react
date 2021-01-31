@@ -66,6 +66,24 @@ export class App extends Component {
               visatype="workvisa"
             />
           </Route>
+          <Route path="/startupvisa">
+            <WorkVisa
+              img="startup"
+              title="Start-ups Visa"
+              headingParagraph="Our specialists can provide you with expert advice to see if you qualify for the new Start-up Visa."
+              headingMain="Are you an ambitious new entrepreneur looking to establish a business in the UK for the first time?"
+              heading="Here are some of the requirements:"
+              innovation="Innovation"
+              viability="Viability"
+              scalibility="Scalability"
+              point1="You need a genuine, innovative business plan that meets new or existing market needs and/or creates a competitive advantage."
+              point2="You need to be actively developing,the necessary skills, knowleadge, experience and market awareness to successfully run the business"
+              point3="You need evidence of potential job creation "
+              point4="Your business idea must be endorsed by an approved UK endorsing body"
+              point5="Meet the English Language requirement (CEFR Level B2--equivalent to IELTS 5.5)"
+              visatype="startup"
+            />
+          </Route>
           <Route path="/studentvisa">
             <WorkVisa
               img="17"
@@ -81,16 +99,15 @@ export class App extends Component {
           </Route>
           <Route path="/innovatorvisa">
             <WorkVisa
-              img="19"
+              img="innovator"
               title="Innovator Visa"
-              headingParagraph="Our specialists can provide you with expert advice to see if you qualify for a Tier 1 Innovator Visa"
-              headingMain="Do you want to start or invest in a buisness in the UK?"
+              headingParagraph="Our specialists can provide you with expert advice to see if you qualify for Innovator Visa."
+              headingMain="Are you an experienced businessman and want to establish a business in the UK?"
               heading="Here are some things you will need:"
-              point1="Access to £200k to invest*"
-              point2="Buisness Plan - should set out all buisness activities you intend to carry out"
-              point3="Pass the 'Genuine Entrepreneur Test' conducted by the Home Office"
-              point4="Meet the English Language requirement"
-              // visatype='entrepreneur'
+              point1="Access to min £50k to invest as well as maintenance funds ( £1,270 in savings to support yourself)"
+              point2="Your business idea must be endorsed by an approved UK endorsing body"
+              point3="Meet the English Language requirement (CEFR Level B2-equivalent to IELTS 5.5)"
+              visatype='innovator'
             />
           </Route>
           <Route path="/investorvisa">
@@ -102,7 +119,7 @@ export class App extends Component {
               heading="Here are some of the requirements:"
               point1="Access to £2 million that is in a regulated financial insititution and disposable in the UK"
               point2="Opened an account with a UK regulated bank for the purposes of investing"
-              visatype="investor"
+              visatype="investor" 
             />
           </Route>
           <Route path="/temporaryworkvisa">
