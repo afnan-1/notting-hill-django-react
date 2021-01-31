@@ -44,9 +44,9 @@ $(function() {
             //     firstName = name.split(' ').slice(0, -1).join(' ');
             // }
             $.ajax({
-                // url: "http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/contactus/",
+                url: "http://ec2-3-92-207-36.compute-1.amazonaws.com:8000/contactus/",
                 // url:'https://admin.nottinghilllaw.co.uk/contactus/',
-                url:'http://localhost:8000/contactus/',
+                // url:'http://localhost:8000/contactus/',
                 type: "POST",
                 data: {
                     firstname: firstname,
