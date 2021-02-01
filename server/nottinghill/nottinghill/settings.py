@@ -52,12 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://nottinghillaw.s3-website.ap-south-1.amazonaws.com",
-    "http://nottinghilllaw.co.uk"
-]
+CORS_ALLOWED_ORIGINS = ['*']
 ROOT_URLCONF = 'nottinghill.urls'
 
 TEMPLATES = [
