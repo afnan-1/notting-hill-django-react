@@ -3,8 +3,8 @@ import ServiceRightSideInfo from "./ServiceRightSideInfo";
 
 function SposualVisa() {
   return (
-    <div>
-      <div className="spousalvisa col-md-6">
+    <div className='workvisa'>
+      <div className="spousalvisa col-md-5">
         <div className="main__heading">
           <div className="service__heading">
             <h1>Spousal Visa</h1>
