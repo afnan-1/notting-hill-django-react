@@ -1,0 +1,146 @@
+{
+    "Header": {
+
+        "title": "We are a Landing Page",
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo nibh ante facilisis bibendum."
+
+    },
+    "About": {
+        "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Why": [
+            "Lorem ipsum dolor",
+            "Tempor incididunt",
+            "Lorem ipsum dolor",
+            "Incididunt ut labore"
+        ],
+        "Why2": [
+            "Aliquip ex ea commodo",
+            "Lorem ipsum dolor",
+            "Exercitation ullamco",
+            "Lorem ipsum dolor"
+        ]
+    },
+    "Services": [{
+            "icon": "/nottingimg/12.png",
+            "name": "Spousal Visa",
+            "path": "/spousalvisa"
+        },
+        {
+            "icon": "/nottingimg/innovator.png",
+            "name": "Innovator Visa",
+            "path": "/innovatorvisa"
+        },
+        {
+            "icon": "nottingimg/15.png",
+            "name": "Work Visa",
+            "path": "/workvisa"
+        },
+        {
+            "icon": "/nottingimg/21.png",
+            "name": "Investor Visa",
+            "path": "/investorvisa"
+        },
+        {
+            "icon": "/nottingimg/17.png",
+            "name": "Student Visa",
+            "path": "studentvisa"
+        },
+        {
+            "icon": "/nottingimg/23.png",
+            "name": "Temporary Work Visa",
+            "path": "temporaryworkvisa"
+        },
+        {
+            "icon": "/nottingimg/25.png",
+            "name": "EUSS",
+            "path": "/eussapplication"
+        },
+        {
+            "icon": "/nottingimg/hongkong.png",
+            "name": "Hong Kong",
+            "path": "/hongkong"
+        },
+        {
+            "icon": "/nottingimg/startup.png",
+            "name": "Start-up Visa",
+            "path": "/startupvisa"
+        }
+
+
+    ],
+    "Testimonials": [{
+            "img": "img/testimonials/01.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/02.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        },
+        {
+            "img": "img/testimonials/03.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/04.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        },
+        {
+            "img": "img/testimonials/05.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/06.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        }
+    ],
+    "Team": [{
+            "img": "img/team/01.jpg",
+            "name": "John Doe",
+            "job": "Director"
+        },
+        {
+            "img": "img/team/02.jpg",
+            "name": "Mike Doe",
+            "job": "Senior Designer"
+        }, {
+            "img": "img/team/03.jpg",
+            "name": "Jane Doe",
+            "job": "Senior Designer"
+        },
+        {
+            "img": "img/team/04.jpg",
+            "name": "Karen Doe",
+            "job": "Project Manager"
+        }
+    ],
+    "Contact": {
+        "address": "International House, 12 Constancee Street, London, E16 2DQ ",
+        "phone": "12432552",
+        "email": "info@nottinghilllaw.com",
+        "facebook": "https://facebook.com/NottingHilllaw",
+        "twitter": "https://twitter.com/LawNotting",
+        "youtube": "https://instagram.com/notting_hill_law"
+    },
+    "Features": [{
+            "icon": "fa fa-whatsapp",
+            "title": "Step 1",
+            "text": "Contact us via phone or email"
+        },
+        {
+            "icon": "fa fa-refresh",
+            "title": "Step 2",
+            "text": "Free 30 minute call"
+        },
+        {
+            "icon": "fa fa-file-text",
+            "title": "Step 3",
+            "text": "Get your immigration matter resolved. Simple!"
+        }
+    ]
+}

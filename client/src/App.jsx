@@ -50,9 +50,9 @@ export class App extends Component {
               <Footer />
             </div>
           </Route>
-          <Route path="/spousalvisa">
-            <SposualVisa />
-          </Route>
+            <Route path="/spousalvisa">
+              <SposualVisa />
+            </Route>
           <Route path="/workvisa">
             <WorkVisa
               img="15"

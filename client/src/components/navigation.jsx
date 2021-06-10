@@ -61,7 +61,7 @@ export class Navigation extends Component {
                   Team
                 </a>
               </li> */}
-              <li>
+              <li className="">
                 <Link to="/contactus">Contact</Link>
               </li>
             </ul>
