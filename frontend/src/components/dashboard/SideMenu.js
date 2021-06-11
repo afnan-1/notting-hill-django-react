@@ -26,6 +26,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import "../../static/sideMenu.scss";
 import { useHistory } from "react-router-dom";
 import { Image } from "react-bootstrap";
+import IconBreadcrumbs from "./BreadCrums";
 
 function Copyright() {
   return (
@@ -48,6 +49,11 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+  },
+  mobileDisplay:{
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   toolbarIcon: {
     display: "flex",
@@ -163,15 +169,19 @@ export default function SideMenu() {
             noWrap
             className={classes.title}
           >
-            {history.location.pathname.split("/")[1].charAt(0).toUpperCase() +
-              history.location.pathname.split("/")[1].slice(1)}
+            NHL
+            {/* {history.location.pathname.split("/")[1].charAt(0).toUpperCase() +
+              history.location.pathname.split("/")[1].slice(1)} */}
           </Typography>
-          <IconButton color="inherit">
+          {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />
             </Badge>
-          </IconButton>
+          </IconButton> */}
         </Toolbar>
+        <div className={classes.mobileDisplay}>
+        <IconBreadcrumbs />
+        </div>
       </AppBar>
       <Drawer
         variant="permanent"
