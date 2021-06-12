@@ -57,9 +57,9 @@ function App() {
             </>
           )}
         />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/profile" component={Dashboard} />
+        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/dashboard/profile" component={Dashboard} />
 
         <Route
           path="/spousalvisa"

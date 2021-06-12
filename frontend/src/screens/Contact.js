@@ -1,6 +1,26 @@
 import React, { useState } from "react";
+import { contactUs, sendEmail } from "../actions/contactus";
 import ScrollToTop from "../components/ScrollToTop";
 function Contact(props) {
+  const [userContactInfo,setUserContactInfo ] = useState({
+    "name":"afnan123",
+    "email":"afnan@gmail.com",
+    "telephone":"03131703898",
+    "message":"helllo world",
+    "date":"123",
+    "ticket_name":"ticket",
+    "ticket_desc":"desc",
+    "time":"time",
+    "country":"pakistan",
+    "city":"fsd"
+  })
+  const handleSubmit=()=>{
+    sendEmail("afnan","hello mera tim tim tim")
+    contactUs(userContactInfo).then(data=>{
+      console.log(data)
+    })
+
+  }
   return (
     <div>
       <ScrollToTop />
@@ -366,10 +386,11 @@ function Contact(props) {
                 </div>
 
                 <div id="success"></div>
-                <button type="submit" className="btn btn-custom btn-lg">
+              
+              </form>
+                <button type="submit" onClick={handleSubmit} className="btn btn-custom btn-lg">
                   Send Message
                 </button>
-              </form>
             </div>
           </div>
           <div className="col-md-4 col-md-offset-1 contact-info">

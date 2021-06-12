@@ -214,8 +214,8 @@ export default function SideMenu() {
           </ListItem>
           <ListItem
             button
-            onClick={() => history.push("/profile")}
-            selected={activeItem("/profile")}
+            onClick={() => history.push("/dashboard/profile")}
+            selected={activeItem("/dashboard/profile")}
           >
             <ListItemIcon>
               <PersonIcon />
@@ -223,7 +223,7 @@ export default function SideMenu() {
             <ListItemText primary="Profile" />
           </ListItem>
         </List>
-        <Divider />
+        {/* <Divider />
         <List>
           <ListItem button>
             <ListItemIcon>
@@ -237,7 +237,7 @@ export default function SideMenu() {
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
           </ListItem>
-        </List>
+        </List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

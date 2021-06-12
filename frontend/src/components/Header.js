@@ -6,7 +6,7 @@ export function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top pb-0">
       <Link className="navbar-brand text-center ml-3" to="/">
-        <span className="border p-1 color border-primary">NHL</span>  <h5 className="color mt-2 text-uppercase">Notting Hill Law</h5> <h6 className="color mb-0"><small className="text-uppercase">Immigration Law simplified</small> </h6>
+        <span className="border p-1 color border-primary mobile__header">NHL</span>  <h5 className="color mt-2 text-uppercase">Notting Hill Law</h5> <h6 className="mobile__header color mb-0"><small className="text-uppercase">Immigration Law simplified</small> </h6>
       </Link>
       <button
         className="navbar-toggler bg-light"

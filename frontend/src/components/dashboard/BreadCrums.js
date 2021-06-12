@@ -23,13 +23,7 @@ const useStyles = makeStyles((theme) => ({
     width: 20,
     height: 20,
   },
-  hover: {},
 }));
-
-function handleClick(event) {
-  event.preventDefault();
-  console.info("You clicked a breadcrumb.");
-}
 
 export default function IconBreadcrumbs() {
   const classes = useStyles();
@@ -42,16 +36,17 @@ export default function IconBreadcrumbs() {
     >
       <NavLink
         to="/dashboard"
+        exact
         className={`${classes.link} ml-5 p-2`}
         activeClassName="text-dark bg-light rounded"
       >
         <DashboardIcon className={classes.icon} />
         Dashboard
       </NavLink>
-      {history.location.pathname === "/profile" && (
+      {history.location.pathname === "/dashboard/profile" && (
         <NavLink
           color="inherit"
-          to="/profile"
+          to="/dashboard/profile"
           className={`${classes.link} p-2`}
           activeClassName="text-dark bg-light rounded"
         >
