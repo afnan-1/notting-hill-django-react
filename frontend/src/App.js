@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Home from "./screens/Home";
 import Visa from "./screens/Visa";
 import SignUp from "./components/auth/SignUp";
+import Guides from './screens/Guides'
 import { Container } from "react-bootstrap";
 import Dashboard from "./screens/Dashboard";
 function App() {
@@ -24,6 +25,7 @@ function App() {
               <Home />
               <Features data={JsonData.Features} />
               <Services data={JsonData.Services} />
+              <Guides />
               <Contact data={JsonData.Contact} />
               <Footer />
             </>

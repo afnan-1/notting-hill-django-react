@@ -2,25 +2,38 @@ import React, { useState } from "react";
 import { contactUs, sendEmail } from "../actions/contactus";
 import ScrollToTop from "../components/ScrollToTop";
 function Contact(props) {
-  const [userContactInfo,setUserContactInfo ] = useState({
-    "name":"afnan123",
-    "email":"afnan@gmail.com",
-    "telephone":"03131703898",
-    "message":"helllo world",
-    "date":"123",
-    "ticket_name":"ticket",
-    "ticket_desc":"desc",
-    "time":"time",
-    "country":"pakistan",
-    "city":"fsd"
+  const [userContactInfo, setUserContactInfo] = useState({
+    first_name:"",
+    last_name:"",
+    email: "",
+    telephone: "",
+    message: "",
+    date: "",
+    ticket_name: "",
+    ticket_desc: "",
+    time: "",
+    country: "",
+    city: "",
+  });
+  const [contactDate,setContactDate] = useState({
+    dd:"",
+    yy:"",
+    mm:""
   })
-  const handleSubmit=()=>{
-    sendEmail("afnan","hello mera tim tim tim")
-    contactUs(userContactInfo).then(data=>{
-      console.log(data)
-    })
-
-  }
+  const handleChange = (e) => {
+    setUserContactInfo({
+      ...userContactInfo,
+      [e.target.name]: e.target.value,
+      date:"dd/mm/yy/ "+contactDate.dd+"/"+contactDate.mm+"/"+contactDate.yy
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendEmail("afnan", "hello mera tim tim tim");
+    contactUs(userContactInfo).then((data) => {
+      console.log(data);
+    });
+  };
   return (
     <div>
       <ScrollToTop />
@@ -35,7 +48,7 @@ function Contact(props) {
                   get back to you as soon as possible.
                 </p>
               </div>
-              <form name="sentMessage" id="contactForm" noValidate>
+              <form name="sentMessage" id="contactForm" method="post" onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-7">
                     <div className="form-group ">
@@ -44,7 +57,8 @@ function Contact(props) {
                         id="firstname"
                         className="form-control contact__form"
                         placeholder="First Name"
-                        name="firstname"
+                        name="first_name"
+                        onChange={handleChange}
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -57,7 +71,8 @@ function Contact(props) {
                         id="lastname"
                         className="form-control contact__form"
                         placeholder="last Name"
-                        name="lastname"
+                        name="last_name"
+                        onChange={handleChange}
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -71,6 +86,7 @@ function Contact(props) {
                         name="email"
                         className="form-control contact__form"
                         placeholder="Email"
+                        onChange={handleChange}
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -82,6 +98,7 @@ function Contact(props) {
                         type="text"
                         id="telephone"
                         name="telephone"
+                        onChange={handleChange}
                         className="form-control contact__form"
                         placeholder="Phone Number"
                         required="required"
@@ -94,6 +111,7 @@ function Contact(props) {
                       <input
                         type="text"
                         id="country"
+                        onChange={handleChange}
                         name="country"
                         className="form-control contact__form"
                         placeholder="Country/ Region"
@@ -108,6 +126,7 @@ function Contact(props) {
                         type="text"
                         id="city"
                         name="city"
+                        onChange={handleChange}
                         className="form-control contact__form"
                         placeholder="City"
                         required="required"
@@ -289,6 +308,7 @@ function Contact(props) {
                       rows="4"
                       placeholder="Message"
                       required
+                      onChange={handleChange}
                     ></textarea>
                   </div>
                   <p className="help-block text-danger"></p>
@@ -301,6 +321,7 @@ function Contact(props) {
                       <input
                         type="text"
                         id="yyyy"
+                        onChange={e=>setContactDate({...contactDate,yy:e.target.value})}
                         name="yyyy"
                         className="form-control contact__form"
                         placeholder="YYYY"
@@ -318,6 +339,7 @@ function Contact(props) {
                         name="mm"
                         className="form-control contact__form"
                         placeholder="MM"
+                        onChange={e=>setContactDate({...contactDate,mm:e.target.value})}
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -331,6 +353,7 @@ function Contact(props) {
                         name="dd"
                         className="form-control contact__form"
                         placeholder="DD"
+                        onChange={e=>setContactDate({...contactDate,dd:e.target.value})}
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -345,6 +368,7 @@ function Contact(props) {
                         type="text"
                         id="time"
                         name="time"
+                        onChange={handleChange}
                         className="form-control contact__form"
                         placeholder="Can you suggest a suitable time? (GMT UK TIME)
                         "
@@ -359,10 +383,11 @@ function Contact(props) {
                       <input
                         type="text"
                         id="ticketname"
-                        name="ticketname"
+                        name="ticket_name"
                         className="form-control contact__form"
                         placeholder="Ticket Name"
                         required="required"
+                        onChange={handleChange}
                       />
                       <p className="help-block text-danger"></p>
                     </div>
@@ -375,10 +400,11 @@ function Contact(props) {
                       <input
                         type="text"
                         id="ticketdesc"
-                        name="ticketdesc"
+                        name="ticket_desc"
                         className="form-control contact__form"
                         placeholder="Ticket Description"
                         required="required"
+                        onChange={handleChange}
                       />
                       <p className="help-block text-danger"></p>
                     </div>
@@ -386,11 +412,10 @@ function Contact(props) {
                 </div>
 
                 <div id="success"></div>
-              
-              </form>
-                <button type="submit" onClick={handleSubmit} className="btn btn-custom btn-lg">
+                <button type="submit" className="btn btn-custom btn-lg">
                   Send Message
                 </button>
+              </form>
             </div>
           </div>
           <div className="col-md-4 col-md-offset-1 contact-info">
