@@ -20,6 +20,7 @@ import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import PersonIcon from "@material-ui/icons/Person";
@@ -50,9 +51,9 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
   },
-  mobileDisplay:{
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
+  mobileDisplay: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
     },
   },
   toolbarIcon: {
@@ -127,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SideMenu() {
+export default function SideMenu({ children }) {
   const history = useHistory();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -180,7 +181,9 @@ export default function SideMenu() {
           </IconButton> */}
         </Toolbar>
         <div className={classes.mobileDisplay}>
-        <IconBreadcrumbs />
+          {!history.location.pathname === "/dashboard/documents/create" && (
+            <IconBreadcrumbs />
+          )}
         </div>
       </AppBar>
       <Drawer
@@ -222,6 +225,16 @@ export default function SideMenu() {
             </ListItemIcon>
             <ListItemText primary="Profile" />
           </ListItem>
+          <ListItem
+            button
+            onClick={() => history.push("/dashboard/documents")}
+            selected={activeItem("/dashboard/documents")}
+          >
+            <ListItemIcon>
+              <InsertDriveFileIcon />
+            </ListItemIcon>
+            <ListItemText primary="Documents" />
+          </ListItem>
         </List>
         {/* <Divider />
         <List>
@@ -261,6 +274,7 @@ export default function SideMenu() {
                 <Orders />
               </Paper>
             </Grid> */}
+            {children}
           </Grid>
           <Box pt={4}>
             <Copyright />

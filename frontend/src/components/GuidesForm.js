@@ -1,20 +1,16 @@
 import React from "react";
-import Modal from "../Modal";
+import Modal from "./Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-// import Link from "@material-ui/core/Link";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -28,17 +24,6 @@ function Copyright() {
   );
 }
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    margin: "0 10px",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    borderRadius: "7px",
-  },
   paper1: {
     marginTop: theme.spacing(3),
     display: "flex",
@@ -57,29 +42,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-export default function Login() {
+function GuidesForm({pdf}) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
-    <Modal buttonTxt="Login">
+    <Modal buttonTxt="Download Guide">
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper1}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography component="h1" variant="h6">
+            Fill The Form To Download Guides
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
@@ -87,9 +62,34 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
+              name="firstName"
+              label="First Name"
+              type="text"
+              id="firstName"
+              size="small"
+              autoComplete="fname"
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="lastName"
+              label="Last Name"
+              type="text"
+              size="small"
+              id="lastName"
+              autoComplete="lname"
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
               id="email"
-              label="Email Address"
+              label="Buisness Email"
               name="email"
+              size="small"
               autoComplete="email"
               autoFocus
             />
@@ -98,34 +98,28 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+              name="companyName"
+              label="Company Name"
+              type="text"
+              id="companyName"
+              size="small"
+              autoComplete="company"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
+            <a href={pdf} download="VisaGuides">
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                <i class="fa fa-download mr-2"></i>
+                Download Guide For Free
+              </Button>
+            </a>
             <Grid container>
               <Grid item xs>
                 <Link to="/" variant="body2">
                   {/* Forgot password? */}
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link to="/signup" variant="body2">
-                  Don't have an account? Sign Up
                 </Link>
               </Grid>
             </Grid>
@@ -134,7 +128,9 @@ export default function Login() {
         <Box mt={2}>
           <Copyright />
         </Box>
-      </Container>
+      </Container>{" "}
     </Modal>
   );
 }
+
+export default GuidesForm;

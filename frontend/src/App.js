@@ -8,9 +8,11 @@ import Footer from "./components/Footer";
 import Home from "./screens/Home";
 import Visa from "./screens/Visa";
 import SignUp from "./components/auth/SignUp";
-import Guides from './screens/Guides'
+import Guides from "./screens/Guides";
 import { Container } from "react-bootstrap";
-import Dashboard from "./screens/Dashboard";
+import Dashboard from "./screens/dashboard/Dashboard";
+import Documents from "./screens/dashboard/Documents";
+import DocumentGenerator from "./screens/dashboard/DocumentGenerator";
 function App() {
   const JsonData = data;
   return (
@@ -62,7 +64,8 @@ function App() {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/dashboard/profile" component={Dashboard} />
-
+        <Route exact path="/dashboard/documents" component={Documents} />
+        <Route exact path="/dashboard/documents/create" component={DocumentGenerator} />
         <Route
           path="/spousalvisa"
           render={() => (
