@@ -2,13 +2,11 @@ import React from "react";
 import Modal from "./Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 function Copyright() {
@@ -42,69 +40,104 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-function GuidesForm({pdf}) {
+function GuidesForm({ pdf }) {
   const classes = useStyles();
 
   return (
-    <Modal buttonTxt="Download Guide">
-      <Container component="main" maxWidth="xs">
+    <Modal buttonTxt="Download" buttonTag={"guides"}>
+      <Container component="main" maxWidth="sm">
         <CssBaseline />
         <div className={classes.paper1}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
           <Typography component="h1" variant="h6">
-            Fill The Form To Download Guides
+            Download Your Copy for free
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="firstName"
-              label="First Name"
-              type="text"
-              id="firstName"
-              size="small"
-              autoComplete="fname"
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="lastName"
-              label="Last Name"
-              type="text"
-              size="small"
-              id="lastName"
-              autoComplete="lname"
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Buisness Email"
-              name="email"
-              size="small"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="companyName"
-              label="Company Name"
-              type="text"
-              id="companyName"
-              size="small"
-              autoComplete="company"
-            />
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="firstName"
+                  label="First Name"
+                  type="text"
+                  id="firstName"
+                  autoComplete="fname"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="lastName"
+                  label="Last Name"
+                  type="text"
+                  id="lastName"
+                  autoComplete="lname"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Buisness Email"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="companyName"
+                  label="Company Name"
+                  type="text"
+                  id="companyName"
+                  autoComplete="company"
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="websiteUrl"
+                  label="Website Url"
+                  type="text"
+                  id="websiteUrl"
+                  autoComplete="url"
+                />
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <TextField
+                  fullWidth
+                  variant="outlined"
+                  required
+                  name="phoneNumber"
+                  label="Phone Number"
+                  type="text"
+                  id="phoneNumber"
+                  autoComplete="phone"
+                />
+              </Grid>
+              <Grid item xs={12} sm={12}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  required
+                  name="phoneNumber"
+                  label="Phone Number"
+                  type="text"
+                  id="phoneNumber"
+                  autoComplete="phone"
+                />
+              </Grid>
+            </Grid>
             <a href={pdf} download="VisaGuides">
               <Button
                 fullWidth
@@ -113,7 +146,7 @@ function GuidesForm({pdf}) {
                 className={classes.submit}
               >
                 <i class="fa fa-download mr-2"></i>
-                Download Guide For Free
+                Download
               </Button>
             </a>
             <Grid container>

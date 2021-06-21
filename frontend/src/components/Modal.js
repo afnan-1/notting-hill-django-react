@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -35,10 +36,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ModalForm({children,buttonTxt}) {
+export default function ModalForm({ children, buttonTxt,buttonTag }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
+  const history = useHistory();
   const handleOpen = () => {
     setOpen(true);
   };
@@ -49,7 +50,13 @@ export default function ModalForm({children,buttonTxt}) {
 
   return (
     <div>
-      <span onClick={handleOpen}>{buttonTxt}</span>
+      {buttonTag=="guides" ? (
+        <button onClick={handleOpen} className="btn btn-custom btn-lg mt-4">
+          {buttonTxt}
+        </button>
+      ) : (
+        <span onClick={handleOpen}>{buttonTxt}</span>
+      )}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -63,9 +70,7 @@ export default function ModalForm({children,buttonTxt}) {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
-          {children}
-          </div>
+          <div className={classes.paper}>{children}</div>
         </Fade>
       </Modal>
     </div>

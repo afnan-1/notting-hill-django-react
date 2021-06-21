@@ -124,8 +124,7 @@ export default function UserBasicInfo() {
                   </InputLabel>
                   <OutlinedInput
                     id="outlined-adornment-amount"
-                    value={values.amount}
-                    onChange={handleChange("amount")}
+                    disabled
                     startAdornment={
                       <InputAdornment position="start">
                         <PhoneInput
