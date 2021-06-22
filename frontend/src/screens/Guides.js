@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
 import Header from "../components/Header";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
@@ -7,8 +7,32 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Carousel from "react-material-ui-carousel";
-import GuidesForm from "../components/GuidesForm"
+import GuidesForm from "../components/GuidesForm";
+import { guidesData } from "../data/guidesData";
+import { useHistory } from "react-router-dom";
 function Guides() {
+  const history = useHistory();
+  const [data, setData] = useState({
+    heading: "",
+    headingPara: "",
+    points: [],
+  });
+
+  useEffect(() => {
+    switch (history.location.pathname) {
+      case "/resources/guides":
+        setData({ ...guidesData.guides });
+        break;
+      case "/resources/tier1":
+        setData({ ...guidesData.tier1 });
+        break;
+      case "/resources/tier5":
+        setData({ ...guidesData.tier5 });
+        break;
+      default:
+        console.log("page not found");
+    }
+  }, []);
   return (
     <>
       <Header />
@@ -21,13 +45,9 @@ function Guides() {
           <Grid item md={6} style={{ backgroundColor: "#F3F3F3" }}>
             <div className="mt-md-5 p-md-5">
               <span>Free Download</span>
-              <h2>Download your Free EU Settlement Scheme Guide</h2>
-              <span>
-                A simple guide to help you successfully apply under the EU
-                settlement Scheme{" "}
-              </span>
-
-              <div className="text-center">
+              <h2>{data.heading}</h2>
+              <span>{data.headingPara}</span>
+              <div className="text-center text-md-left">
                 <GuidesForm />
               </div>
             </div>
@@ -49,14 +69,12 @@ function Guides() {
             <div className="mt-md-5 p-md-5">
               <h2>What you'll find inside:</h2>
               <List>
-                <ListItemUser text="Who should be applying under the EUSS Scheme?" />
-                <ListItemUser text="The difference between applying for settled status or pre-settled status" />
-                <ListItemUser text="Your rights under settled status ir pre-settled status" />
-                <ListItemUser text="The documents you will need to make your application" />
-                <ListItemUser text="The Home Office Fees" />
+                {data.points.map((v, i) => (
+                  <ListItemUser text={v} key={i} />
+                ))}
               </List>
               <div className="text-center mt-md-4">
-              <GuidesForm />
+                <GuidesForm />
               </div>
             </div>
           </Grid>
@@ -93,7 +111,7 @@ function Guides() {
               <button className="btn btn-custom btn-lg">Read More</button>
             </Grid>
           </Grid>
-        </Grid> 
+        </Grid>
       </Container>
     </>
   );

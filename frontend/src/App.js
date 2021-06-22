@@ -7,12 +7,13 @@ import Contact from "./screens/Contact";
 import Footer from "./components/Footer";
 import Home from "./screens/Home";
 import Visa from "./screens/Visa";
-import SignUp from "./components/auth/SignUp";
 import Dashboard from "./screens/dashboard/Dashboard";
 import Documents from "./screens/dashboard/Documents";
 import DocumentGenerator from "./screens/dashboard/DocumentGenerator";
 import Resources from "./screens/Resources";
 import Guides from "./screens/Guides";
+import Login from "./screens/Login";
+import Signup from "./screens/Signup";
 function App() {
   const JsonData = data;
   return (
@@ -72,7 +73,8 @@ function App() {
           )}
         />
         <Route exact path="/resources/:slug/" component={Guides} />
-        <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/dashboard/profile" component={Dashboard} />
         <Route exact path="/dashboard/documents" component={Documents} />

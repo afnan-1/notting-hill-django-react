@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Login from "./auth/Login";
 import { Nav } from 'react-bootstrap'
 export function Header() {
   return (
@@ -49,7 +48,9 @@ export function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            <Nav.Link><Login /></Nav.Link> 
+          <Link className="nav-link" to="/login">
+              Login
+            </Link>
           </li>
         </ul>
       </div>

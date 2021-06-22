@@ -23,7 +23,7 @@ function Resources() {
               the UK after 30 june 2021
             </p>
             <div className="text-center text-sm-left">
-              <button className="btn btn-custom btn-lg mt-4">Download</button>
+              <button className="btn btn-custom btn-lg mt-4" onClick={()=>history.push("/resources/guides")}>Download</button>
             </div>
           </Grid>
           <Grid item xs={0} sm={6}>
@@ -35,7 +35,7 @@ function Resources() {
         {/* Guides */}
         <Grid container spacing={2}>
           <Grid item sm={6} md={3}>
-            <CardActionArea onClick={()=>history.push('/resources/investorvisa')} className="p-2 rounded">
+            <CardActionArea onClick={()=>history.push('/resources/tier1')} className="p-2 rounded">
               <img
                 src="/nottingimg/resources.png"
                 className="img-fluid"
@@ -47,7 +47,7 @@ function Resources() {
             </CardActionArea>
           </Grid>
           <Grid item sm={6} md={3}>
-            <CardActionArea onClick={()=>history.push('/resources/skilledworkervisa')} className="p-2 rounded">
+            <CardActionArea onClick={()=>history.push('/resources/tier5')} className="p-2 rounded">
               <img
                 src="/nottingimg/resources.png"
                 className="img-fluid"
@@ -66,7 +66,7 @@ function Resources() {
                 alt=""
               />
               <h3 className="text-md-left text-sm-left text-center">
-                Free Guide to Tier 1 Investor Visa
+                Free Guide to Tier 5 Investor Visa
               </h3>
             </CardActionArea>
           </Grid>

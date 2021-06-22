@@ -9,6 +9,8 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import MenuItem from "@material-ui/core/MenuItem";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -40,9 +42,32 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const currencies = [
+  {
+    value: "2",
+    label: "2",
+  },
+  {
+    value: "4",
+    label: "4",
+  },
+  {
+    value: "6",
+    label: "6",
+  },
+  {
+    value: "More then 6",
+    label: "More then 6",
+  },
+];
 function GuidesForm({ pdf }) {
   const classes = useStyles();
+  const [currency, setCurrency] = React.useState("2");
 
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
+  };
   return (
     <Modal buttonTxt="Download" buttonTag={"guides"}>
       <Container component="main" maxWidth="sm">
@@ -127,15 +152,23 @@ function GuidesForm({ pdf }) {
               </Grid>
               <Grid item xs={12} sm={12}>
                 <TextField
-                  variant="outlined"
+                  id="outlined-select-currency"
+                  select
+                  label="How many employees work there?"
                   fullWidth
                   required
-                  name="phoneNumber"
-                  label="Phone Number"
-                  type="text"
-                  id="phoneNumber"
-                  autoComplete="phone"
-                />
+                  // defaultValue="Please Select"
+                  value={currency}
+                  onChange={handleChange}
+                  helperText="Please select"
+                  variant="outlined"
+                >
+                  {currencies.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Grid>
             </Grid>
             <a href={pdf} download="VisaGuides">
