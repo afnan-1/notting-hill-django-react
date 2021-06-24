@@ -3,11 +3,6 @@ import ScrollToTop from "../components/ScrollToTop";
 export class features extends Component {
  
   render() {
-    if(window.location.pathname==='/process'){
-      let style={
-        height:'100vh'
-      }
-    }
     return (
       <div id="features"  className="text-center" style={{backgroundImage:"url('./img/intro-bg0.png')"}}>
         <ScrollToTop />

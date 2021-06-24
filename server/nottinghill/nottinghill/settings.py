@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import environ
+env = environ.Env()
+environ.Env.read_env()
 from pathlib import Path
 import os
 from datetime import timedelta
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'contactus',
     'rest_framework',
+    'django_rest_passwordreset',
     'users'
 ]
 
@@ -73,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -149,3 +153,5 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
 
 }
+
+DOMAIN_NAME = env("DOMAIN_NAME")

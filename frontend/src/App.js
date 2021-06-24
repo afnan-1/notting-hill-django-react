@@ -14,6 +14,8 @@ import Resources from "./screens/Resources";
 import Guides from "./screens/Guides";
 import Login from "./screens/Login";
 import Signup from "./screens/Signup";
+import ForgotPassword from "./screens/ForgotPassword";
+import NewPassword from "./screens/NewPassword";
 function App() {
   const JsonData = data;
   return (
@@ -78,6 +80,9 @@ function App() {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/dashboard/profile" component={Dashboard} />
         <Route exact path="/dashboard/documents" component={Documents} />
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/reset_password" component={NewPassword} />
+
         <Route
           exact
           path="/dashboard/documents/create"

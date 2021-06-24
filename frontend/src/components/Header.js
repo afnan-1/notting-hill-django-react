@@ -1,11 +1,27 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Nav } from 'react-bootstrap'
+import { checkAuthenticated, logout } from "../actions/users";
 export function Header() {
+  const [auth, setAuth] = useState(false);
+  useEffect(() => {
+    if (checkAuthenticated()) {
+      setAuth(true);
+    }
+  }, []);
+  const handleLogout = () => {
+    setAuth(false);
+    logout();
+  };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top pb-0">
+    <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white">
       <Link className="navbar-brand text-center ml-3" to="/">
-        <span className="border p-1 color border-primary mobile__header">NHL</span>  <h5 className="color mt-2 text-uppercase">Notting Hill Law</h5> <h6 className="mobile__header color mb-0"><small className="text-uppercase">Immigration Law simplified</small> </h6>
+        <span className="border p-1 color border-primary mobile__header">
+          NHL
+        </span>{" "}
+        <h5 className="color mt-2 text-uppercase">Notting Hill Law</h5>{" "}
+        <h6 className="mobile__header color mb-0">
+          <small className="text-uppercase">Immigration Law simplified</small>{" "}
+        </h6>
       </Link>
       <button
         className="navbar-toggler bg-light"
@@ -48,9 +64,15 @@ export function Header() {
             </Link>
           </li>
           <li className="nav-item">
-          <Link className="nav-link" to="/login">
-              Login
-            </Link>
+            {auth ? (
+              <span onClick={handleLogout} className="nav-link">
+                Logout
+              </span>
+            ) : (
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
+            )}
           </li>
         </ul>
       </div>

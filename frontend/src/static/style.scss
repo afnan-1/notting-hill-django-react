@@ -202,20 +202,11 @@ a:focus,
 }
 
 /* Header Section */
-.intro {
-  display: table;
-  width: 100%;
-  padding: 0;
-  /* background: url(../img/intro-bg1.png) center center no-repeat; */
-  background-color: #fff;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}
+
 
 .intro .overlay {
   background: rgba(175, 175, 175, 0.1);
+  padding-bottom: 250px ;
 }
 
 .intro h1 {
@@ -244,10 +235,8 @@ a:focus,
 
 .intro-logo {
   object-fit: cover;
-  padding-top: 220px;
-  padding-bottom: 200px;
+  padding-top: 100px;
   width: 100%;
-  /* height: 400px; */
 }
 
 header .intro-text {
@@ -260,7 +249,7 @@ header .intro-text {
 }
 
 .header-text {
-  padding-top: 250px;
+  padding-top: 100px;
 }
 
 .mobile__heading {
@@ -270,7 +259,7 @@ header .intro-text {
 /* Features Section */
 #features {
   height: 100vh;
-  padding: 160px 0;
+  padding: 60px 0 ;
   background: #f6f6f6;
   background-repeat: no-repeat;
   background-size: cover;
@@ -353,7 +342,7 @@ header .intro-text {
 
 /* Services Section */
 #services {
-  padding: 100px 0;
+  padding: 60px 0;
   /* height: 100vh; */
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   color: #fff;
@@ -730,9 +719,8 @@ header .intro-text {
 }
 
 .spousalvisa {
-  padding-left: 30px;
   color: #418bdb;
-  margin-top: 80px;
+  margin-top: 50px;
   /* height: 100vh; */
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
@@ -771,9 +759,9 @@ header .intro-text {
 }
 
 .rightside_info {
-  padding-left: 40px;
-  margin-top: 125px;
-  margin-left: 100px;
+  padding-left: 80px;
+  margin-top: 60px;
+  // margin-left: 100px;
   color: #418bdb;
 }
 
@@ -849,9 +837,6 @@ body, html {
 }
 
 @media only screen and (max-width: 600px) {
-  .header-text {
-    padding-top: 230px;
-  }
   .mobile__header{
     display: none;
   }
@@ -891,11 +876,6 @@ body, html {
 
   .main__heading {
     margin-left: 20px;
-  }
-
-  .spousalvisa {
-    margin-top: 100px;
-    padding-left: 0px;
   }
 
   .spousalimg {
@@ -975,6 +955,7 @@ li {
 
 .nav-link:hover {
   color: #3441bb !important;
+  cursor: pointer;
 }
 
 .nav-link:focus,

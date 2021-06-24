@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import Header from "../components/Header";
 import "../static/auth.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Grid } from "@material-ui/core";
+import { checkAuthenticated, login } from "../actions/users";
+import Alert from "@material-ui/lab/Alert";
+import LinearProgress from "@material-ui/core/LinearProgress";
+
 function Login() {
+  const history = useHistory();
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState({
+    err: false,
+    errMsg: "",
+  });
+  const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+   if (checkAuthenticated()){
+     history.push('/')
+   }
+  }, [])
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setLoader(true);
+    login(credentials).then((response) => {
+      if (response.status === 200) {
+        history.push("/");
+        setError({ err: false });
+        setLoader(false);
+      } else {
+        setLoader(false);
+        setError({ err: true, errMsg: response });
+      }
+    });
+  };
   return (
     <>
       <Header />
+      {loader && <LinearProgress color="secondary" />}
       <div
-        className="authHeaderColor text-center pb-3"
-        style={{ paddingTop: "130px" }}
+        className="authHeaderColor text-center p-4"
+        // style={{ paddingTop: "130px" }}
       >
         <h2
           className="text-light"
@@ -17,12 +55,21 @@ function Login() {
         >
           Login
         </h2>
-        <Link to="/signup" className="text-light"> Dont have an account? Sign up</Link>{" "}
+        <Link to="/signup" className="text-light">
+          {" "}
+          Dont have an account? Sign up
+        </Link>{" "}
       </div>
-      <div className="">
+      <div>
         <div className="px-5 col-md-6 col-sm-12 mx-auto">
+          {error.err && (
+            <Alert className="mt-2" severity="error">
+              {error.errMsg}
+            </Alert>
+          )}
+
           <Grid container direction="column">
-            <form>
+            <form onSubmit={submitHandler}>
               <div class="form-group">
                 <label
                   className="mb-1 mt-4 text-uppercase"
@@ -36,6 +83,8 @@ function Login() {
                   style={{ borderRadius: "20px" }}
                   class="form-control bg-light border-0 py-2 px-4"
                   id="exampleInputEmail1"
+                  onChange={handleChange}
+                  name="email"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
                 />
@@ -53,6 +102,8 @@ function Login() {
                 </label>
                 <input
                   type="password"
+                  name="password"
+                  onChange={handleChange}
                   class="form-control bg-light border-0 py-2 px-4 "
                   id="exampleInputPassword1"
                   placeholder="Password"

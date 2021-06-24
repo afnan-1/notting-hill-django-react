@@ -8,7 +8,7 @@ export class Home extends Component {
         <ScrollToTop />
         <div
           className="intro"
-          style={{ background: "url('./img/intro-bg1.png')" }}
+          style={{ background: "url('./img/intro-bg1.png')",backgroundSize:"cover" }}
         >
           <div className="overlay">
             <div className="container">
@@ -32,7 +32,7 @@ export class Home extends Component {
                   <img
                     src="/img/intro-logo.png"
                     className="intro-logo"
-                    alt=""
+                    alt="logo"
                   />
                 </div>
               </div>

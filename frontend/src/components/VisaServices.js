@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 function VisaServices(props) {
   const history = useHistory();
   return (
-    <div className={`rightside_info col-md-5 col-sm-12 col-xl-6`}>
+    <div className={`rightside_info col-md-6 col-sm-12 col-xl-6`}>
       <h1>{props.heading}</h1>
       <div className="points">
         <div className="point1">
