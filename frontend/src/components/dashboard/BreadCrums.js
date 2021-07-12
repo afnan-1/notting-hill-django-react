@@ -11,7 +11,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
 import { Add } from "@material-ui/icons";
-import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+import InsertDriveFileIcon from "@material-ui/icons/InsertDriveFile";
 import { Grid, Button } from "@material-ui/core";
 import PersonIcon from "@material-ui/icons/Person";
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +53,12 @@ export default function IconBreadcrumbs() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose();
+          history.push("/dashboard/documents/create");
+        }}
+      >
         <Add /> Create New Document
       </MenuItem>
       <MenuItem onClick={handleMenuClose}>Browse Templates</MenuItem>
@@ -67,15 +72,18 @@ export default function IconBreadcrumbs() {
             aria-label="breadcrumb"
             className="text-center pl-5 py-2 bg-white"
           >
-            <NavLink
-              to="/dashboard"
-              exact
-              className={`${classes.link} ml-5 p-2`}
-              activeClassName="text-dark bg-light rounded"
-            >
-              <DashboardIcon className={classes.icon} />
-              Dashboard
-            </NavLink>
+            {history.location.pathname != "/dashboard/documents/create" && (
+              <NavLink
+                to="/dashboard"
+                exact
+                className={`${classes.link} ml-5 p-2`}
+                activeClassName="text-dark bg-light rounded"
+              >
+                <DashboardIcon className={classes.icon} />
+                Dashboard
+              </NavLink>
+            )}
+
             {history.location.pathname === "/dashboard/profile" && (
               <NavLink
                 color="inherit"
@@ -96,6 +104,17 @@ export default function IconBreadcrumbs() {
               >
                 <InsertDriveFileIcon className={classes.icon} />
                 Documents
+              </NavLink>
+            )}
+             {history.location.pathname === "/dashboard/documents/upload" && (
+              <NavLink
+                color="inherit"
+                to="/dashboard/documents/upload"
+                className={`${classes.link} p-2`}
+                activeClassName="text-dark bg-light rounded"
+              >
+                <InsertDriveFileIcon className={classes.icon} />
+                Upload
               </NavLink>
             )}
 

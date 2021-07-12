@@ -26,12 +26,11 @@ def register_user(request):
     data = request.data
     try:
         user = CustomUser.objects.create(
-            first_name=data['first_name'],
-            last_name =data['last_name'],
+            name=data['name'],
+            date_of_birth =data['date_of_birth'],
             email=data['email'],
             password=make_password(data['password'])
         )
-
         serializer = UserSerializerWithToken(user, many=False)
         return Response(serializer.data)
     except:

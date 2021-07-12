@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import ScrollToTop from "../components/ScrollToTop";
+import data from "../data/data.json";
+
 export class features extends Component {
- 
   render() {
+    const JsonData = data.Features;
     return (
+      <>
       <div id="features"  className="text-center" style={{backgroundImage:"url('./img/intro-bg0.png')"}}>
         <ScrollToTop />
         <div className="container ff">
@@ -11,8 +14,8 @@ export class features extends Component {
             <h2>Our Process</h2>
           </div>
           <div className="row">
-            {this.props.data
-              ? this.props.data.map((d, i) => (
+            {JsonData
+              ? JsonData.map((d, i) => (
                   <div
                     key={`${d.title}-${i}`}
                     className="col-xs-12 col-sm-6 col-md-4 feature_icon"
@@ -27,6 +30,7 @@ export class features extends Component {
           </div>
         </div>
       </div>
+      </>
     );
   }
 }

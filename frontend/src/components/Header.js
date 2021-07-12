@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { checkAuthenticated, logout } from "../actions/users";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { logout } from "../store/actions/userActions";
 export function Header() {
-  const [auth, setAuth] = useState(false);
-  useEffect(() => {
-    if (checkAuthenticated()) {
-      setAuth(true);
-    }
-  }, []);
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const handleLogout = () => {
-    setAuth(false);
-    logout();
+    dispatch(logout());
   };
+  if (
+    location.pathname === "/login" ||
+    location.pathname == "/signup" ||
+    location.pathname.startsWith("/dashboard") ||
+    location.pathname.startsWith("/users") ||
+    location.pathname === "/forgot-password"
+  ) {
+    return null;
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white">
       <Link className="navbar-brand text-center ml-3" to="/">
@@ -64,7 +71,7 @@ export function Header() {
             </Link>
           </li>
           <li className="nav-item">
-            {auth ? (
+            {userInfo ? (
               <span onClick={handleLogout} className="nav-link">
                 Logout
               </span>

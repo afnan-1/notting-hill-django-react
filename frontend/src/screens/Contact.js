@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { contactUs, sendEmail } from "../actions/contactus";
 import ScrollToTop from "../components/ScrollToTop";
-function Contact(props) {
+import data from "../data/data.json";
+
+function Contact() {
+  const JsonData = data.Contact
   const [userContactInfo, setUserContactInfo] = useState({
     first_name:"",
     last_name:"",
@@ -38,7 +41,7 @@ function Contact(props) {
     <div>
       <ScrollToTop />
       <div id="contact" className="px-4">
-        <div className="ml-2 mx-auto row">
+        <div className="ml-2 mx-auto row container">
           <div className="col-md-8">
             <div className="container">
               <div className="section-title">
@@ -425,12 +428,12 @@ function Contact(props) {
                 <span>
                   <i className="fa fa-envelope-o"></i> Email
                 </span>{" "}
-                {props.data ? props.data.email : "loading"}
+                {JsonData ? JsonData.email : "loading"}
               </p>
             </div>
             <div className="contact-item">
               <p>
-                <a href={props.data ? props.data.facebook : "/"}>
+                <a href={JsonData ? JsonData.facebook : "/"}>
                   <span>
                     <i className="fa fa-facebook"></i> Notting Hill Law
                   </span>
@@ -439,7 +442,7 @@ function Contact(props) {
             </div>
             <div className="contact-item">
               <p>
-                <a href={props.data ? props.data.twitter : "/"}>
+                <a href={JsonData ? JsonData.twitter : "/"}>
                   <span>
                     <i className="fa fa-twitter"></i>@lawNotting
                   </span>
@@ -448,7 +451,7 @@ function Contact(props) {
             </div>
             <div className="contact-item">
               <p>
-                <a href={props.data ? props.data.youtube : "/"}>
+                <a href={JsonData ? JsonData.youtube : "/"}>
                   <span>
                     <i className="fa fa-instagram"></i> Notting_hill_law
                   </span>

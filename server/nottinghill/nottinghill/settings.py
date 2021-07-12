@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'contactus',
     'rest_framework',
     'django_rest_passwordreset',
-    'users'
+    'users',
+    'guides'
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,14 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+MEDIA_ROOT = 'static/images'
+
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ballypythapa@gmail.com'

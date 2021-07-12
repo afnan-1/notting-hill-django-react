@@ -10,53 +10,53 @@ import Carousel from "react-material-ui-carousel";
 import GuidesForm from "../components/GuidesForm";
 import { guidesData } from "../data/guidesData";
 import { useHistory } from "react-router-dom";
-function Guides() {
+import ScrollToTop from "../components/ScrollToTop";
+import { getGuide, getGuides } from "../actions/guides";
+import { TramRounded } from "@material-ui/icons";
+
+function Guides({ location, match }) {
   const history = useHistory();
+  const guideId = match.params.slug;
   const [data, setData] = useState({
+    title: "",
+    guide: [],
     heading: "",
-    headingPara: "",
-    points: [],
+    heading_outline_paragraph: "",
+    pdf: "",
+    pdf_image: "",
+    guide_image:""
   });
 
   useEffect(() => {
-    switch (history.location.pathname) {
-      case "/resources/guides":
-        setData({ ...guidesData.guides });
-        break;
-      case "/resources/tier1":
-        setData({ ...guidesData.tier1 });
-        break;
-      case "/resources/tier5":
-        setData({ ...guidesData.tier5 });
-        break;
-      default:
-        console.log("page not found");
-    }
+    let mounted = true;
+    getGuide(guideId).then((res) => {
+      if (mounted) {
+        setData(res.data);
+      }
+    });
+    return () => (mounted = false);
   }, []);
   return (
     <>
       <Header />
-      <Container
-        disableGutters
-        style={{ maxWidth: "1500px" }}
-        className="mt-md-5"
-      >
-        <Grid container className="mt-md-5">
-          <Grid item md={6} style={{ backgroundColor: "#F3F3F3" }}>
-            <div className="mt-md-5 p-md-5">
+      <ScrollToTop />
+      <Container disableGutters style={{ maxWidth: "1500px" }}>
+        <Grid container className="mt-sm-5 mt-md-0">
+          <Grid item  sm={6} xs={12} style={{ backgroundColor: "#F3F3F3" }}>
+            <div className="mt-md-5 p-3 p-md-5 text-center text-sm-center text-md-left">
               <span>Free Download</span>
-              <h2>{data.heading}</h2>
-              <span>{data.headingPara}</span>
+              <h2 class="h2 text-dark"> {data&&data.heading}</h2>
+              <span>{data&&data.heading_outline_paragraph}</span>
               <div className="text-center text-md-left">
-                <GuidesForm />
+                <GuidesForm  pdf={data&&data.pdf} />
               </div>
             </div>
           </Grid>
-          <Grid item md={6} style={{ backgroundColor: "#D1EEF7" }}>
-            <div className="text-center">
+          <Grid item sm={6}  xs={12}style={{ backgroundColor: "#D1EEF7" }}>
+            <div className="text-center mt-md-2 mt-sm-5 p-md-0 p-sm-3">
               <img
-                className="img-fluid px-md-5 py-md-5 mt-md-5"
-                src="/nottingimg/guidesheader.png"
+                className="img-fluid p-5 mt-md-5 "
+                src={data&&data.guide_image}
                 alt=""
                 width="350"
               />
@@ -65,20 +65,20 @@ function Guides() {
 
           {/* 2nd portion */}
 
-          <Grid item md={6}>
-            <div className="mt-md-5 p-md-5">
-              <h2>What you'll find inside:</h2>
+          <Grid item md={6} xs={12}>
+            <div className="mt-md-5 p-3 p-md-5">
+              <h2 className="h2">What you'll find inside:</h2>
               <List>
-                {data.points.map((v, i) => (
-                  <ListItemUser text={v} key={i} />
+                {data&&data.guide&&data.guide.map((v, i) => (
+                  <ListItemUser text={v.point} key={i} />
                 ))}
               </List>
               <div className="text-center mt-md-4">
-                <GuidesForm />
+                <GuidesForm path={location.pathname} pdf={data&&data.pdf} />
               </div>
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} xs={12}>
             <div className="mt-md-5 p-md-5">
               <Carousel navButtonsAlwaysVisible className="text-center">
                 <img
@@ -104,11 +104,11 @@ function Guides() {
             className="mt-md-5 p-md-5"
             alignItems="center"
           >
-            <Grid item md={7}>
-              <h2>Book a free consultation for expert advice on your case</h2>
+            <Grid item md={7} sm={12} className="mt-md-5 p-md-5 p-3">
+              <h2 className="h2">Book a free consultation for expert advice on your case</h2>
             </Grid>
-            <Grid item md={5} className="text-center">
-              <button className="btn btn-custom btn-lg">Read More</button>
+            <Grid item md={5} sm={12} xs={12} className="text-center">
+              <button className="btn btn-custom mb-xs-2 mb-0">Read More</button>
             </Grid>
           </Grid>
         </Grid>

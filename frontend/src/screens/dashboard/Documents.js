@@ -50,28 +50,18 @@ function Documents() {
             </Grid>
             <Grid item sm={4} md={4} xs={6}>
               <Paper className="p-4">
-                <Paper
-                  className="rounded-circle mx-auto"
-                  style={{ width: "max-content" }}
-                >
-                  <IconButton>
-                    <AddIcon color="primary" style={{ fontSize: "4rem" }} />
-                  </IconButton>
-                </Paper>
-                <h4 className="text-center mt-5">Create new document</h4>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+                doloremque assumenda nemo eligendi nam odio ducimus aut facere
+                nesciunt delectus esse atque, ratione quas accusamus aspernatur,
+                laborum blanditiis. Ut, iure?
               </Paper>
             </Grid>
             <Grid item sm={4} md={4} xs={6}>
               <Paper className="p-4">
-                <Paper
-                  className="rounded-circle mx-auto"
-                  style={{ width: "max-content" }}
-                >
-                  <IconButton>
-                    <AddIcon color="primary" style={{ fontSize: "4rem" }} />
-                  </IconButton>
-                </Paper>
-                <h4 className="text-center mt-5">Create new document</h4>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+                doloremque assumenda nemo eligendi nam odio ducimus aut facere
+                nesciunt delectus esse atque, ratione quas accusamus aspernatur,
+                laborum blanditiis. Ut, iure?
               </Paper>
             </Grid>
           </Grid>

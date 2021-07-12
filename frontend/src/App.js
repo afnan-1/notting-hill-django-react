@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Services from "./screens/Services";
 import data from "./data/data.json";
 import Features from "./screens/Features";
+
 import Contact from "./screens/Contact";
 import Footer from "./components/Footer";
 import Home from "./screens/Home";
@@ -16,72 +17,38 @@ import Login from "./screens/Login";
 import Signup from "./screens/Signup";
 import ForgotPassword from "./screens/ForgotPassword";
 import NewPassword from "./screens/NewPassword";
+import UploadDocuments from "./screens/dashboard/UploadDocuments";
+import DocumentEditor from "./screens/dashboard/DocumentEditor";
 function App() {
   const JsonData = data;
   return (
     <Router>
+      <Header />
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <>
-              <Header />
-              <Home />
-              <Features data={JsonData.Features} />
-              <Services data={JsonData.Services} />
-              <Resources />
-              <Contact data={JsonData.Contact} />
-              <Footer />
-            </>
-          )}
-        />
-        <Route
-          path="/services"
-          render={() => (
-            <>
-              <Header />
-              <Services data={JsonData.Services} />{" "}
-            </>
-          )}
-        />
-        <Route
-          path="/process"
-          render={() => (
-            <>
-              <Header />
-              <Features data={JsonData.Features} />
-            </>
-          )}
-        />
-        <Route
-          path="/contactus"
-          render={() => (
-            <>
-              <Header />
-
-              <Contact data={JsonData.Contact} />
-            </>
-          )}
-        />
-        <Route
-          exact
-          path="/resources"
-          render={() => (
-            <>
-              <Header />
-              <Resources />
-            </>
-          )}
-        />
+        <Route exact path="/" component={Home} />
+        <Route path="/services" component={Services} />
+        <Route path="/process" component={Features} />
+        <Route path="/contactus" component={Contact} />
+        <Route exact path="/resources" component={Resources} />
         <Route exact path="/resources/:slug/" component={Guides} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/dashboard/profile" component={Dashboard} />
         <Route exact path="/dashboard/documents" component={Documents} />
+        <Route
+          exact
+          path="/dashboard/documents/editor"
+          component={DocumentEditor}
+        />
+        <Route
+          exact
+          path="/dashboard/documents/upload"
+          component={UploadDocuments}
+        />
+
         <Route path="/forgot-password" component={ForgotPassword} />
-        <Route path="/reset_password" component={NewPassword} />
+        <Route path="/users/password_reset/" component={NewPassword} />
 
         <Route
           exact
@@ -92,7 +59,6 @@ function App() {
           path="/spousalvisa"
           render={() => (
             <>
-              <Header />
               <Visa
                 img="spousalnew"
                 title="Spousal Visa"
@@ -115,7 +81,6 @@ function App() {
           path="/hongkong"
           render={() => (
             <>
-              <Header />
               <Visa
                 img="flags"
                 title="Hong Kong British Nationals (Overseas) BN(O) Visa"
@@ -130,13 +95,11 @@ function App() {
             </>
           )}
         />
-
         <Route
           exact
           path="/workvisa"
           render={() => (
             <>
-              <Header />
               <Visa
                 img="15"
                 title="Work Visa"
@@ -156,8 +119,6 @@ function App() {
           path="/startupvisa"
           render={() => (
             <>
-              <Header />
-
               <Visa
                 img="startup"
                 title="Start-ups Visa"
@@ -183,8 +144,6 @@ function App() {
           path="/studentvisa"
           render={() => (
             <>
-              <Header />
-
               <Visa
                 img="17"
                 title="Student Visa"
@@ -205,8 +164,6 @@ function App() {
           path="/temporaryworkvisa"
           render={() => (
             <>
-              <Header />
-
               <Visa
                 img="23"
                 title="Temporary Work Visa"
@@ -225,8 +182,6 @@ function App() {
           path="/eussapplication"
           render={() => (
             <>
-              <Header />
-
               <Visa
                 img="25"
                 title="EUSS Application Support"
@@ -246,7 +201,6 @@ function App() {
           path="/innovatorvisa"
           render={() => (
             <>
-              <Header />
               <Visa
                 img="innovator"
                 title="Innovator Visa"

@@ -32,7 +32,10 @@ function Dashboard() {
                   style={{ borderRadius: "6px" }}
                   elevation={0}
                 >
-                  hello
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus maiores nesciunt ea facilis quaerat corporis
+                  reprehenderit, perferendis totam, qui ab distinctio, fugiat
+                  odit?
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -41,7 +44,10 @@ function Dashboard() {
                   style={{ borderRadius: "6px" }}
                   elevation={0}
                 >
-                  hello
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus maiores nesciunt ea facilis quaerat corporis
+                  reprehenderit, perferendis totam, qui ab distinctio, fugiat
+                  odit?
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -50,7 +56,10 @@ function Dashboard() {
                   style={{ borderRadius: "6px" }}
                   elevation={0}
                 >
-                  hello
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus maiores nesciunt ea facilis quaerat corporis
+                  reprehenderit, perferendis totam, qui ab distinctio, fugiat
+                  odit?
                 </Paper>
               </Grid>
             </Grid>
@@ -64,7 +73,7 @@ function Dashboard() {
                     className="rounded-circle mx-auto"
                     style={{ width: "max-content" }}
                   >
-                     <IconButton>
+                    <IconButton>
                       <AddIcon color="primary" style={{ fontSize: "4rem" }} />
                     </IconButton>
                   </Paper>
@@ -73,28 +82,18 @@ function Dashboard() {
               </Grid>
               <Grid item sm={4} md={4} xs={6}>
                 <Paper className="p-4">
-                  <Paper
-                    className="rounded-circle mx-auto"
-                    style={{ width: "max-content" }}
-                  >
-                     <IconButton>
-                      <AddIcon color="primary" style={{ fontSize: "4rem" }} />
-                    </IconButton>
-                  </Paper>
-                  <h4 className="text-center mt-5">Create new document</h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus maiores nesciunt ea facilis quaerat corporis
+                  reprehenderit, perferendis totam, qui ab distinctio, fugiat
+                  odit?
                 </Paper>
               </Grid>
               <Grid item sm={4} md={4} xs={6}>
                 <Paper className="p-4">
-                  <Paper
-                    className="rounded-circle mx-auto"
-                    style={{ width: "max-content" }}
-                  >
-                     <IconButton>
-                      <AddIcon color="primary" style={{ fontSize: "4rem" }} />
-                    </IconButton>
-                  </Paper>
-                  <h4 className="text-center mt-5">Create new document</h4>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Possimus maiores nesciunt ea facilis quaerat corporis
+                  reprehenderit, perferendis totam, qui ab distinctio, fugiat
+                  odit?
                 </Paper>
               </Grid>
             </Grid>
@@ -111,7 +110,6 @@ function Dashboard() {
                 </Grid>
               </Grid>
             </Paper>
-
 
             <Paper className="mt-4 p-2">hello</Paper>
           </Grid>

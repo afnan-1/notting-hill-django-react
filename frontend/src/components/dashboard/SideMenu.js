@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 24, // keep right padding when drawer closed
   },
   mobileDisplay: {
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
       display: "none",
     },
   },
@@ -180,9 +180,11 @@ export default function SideMenu({ children }) {
             </Badge>
           </IconButton> */}
         </Toolbar>
+
         <div className={classes.mobileDisplay}>
-          {!history.location.pathname === "/dashboard/documents/create" && (
-            <IconBreadcrumbs />
+
+          {history.location.pathname != "/dashboard/documents/create" && (
+          <IconBreadcrumbs />
           )}
         </div>
       </AppBar>
