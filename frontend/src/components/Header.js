@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import {NavLink, Link, useLocation } from "react-router-dom";
 import { logout } from "../store/actions/userActions";
 export function Header() {
   const location = useLocation();
@@ -22,7 +22,7 @@ export function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-white">
       <Link className="navbar-brand text-center ml-3" to="/">
-        <span className="border p-1 color border-primary mobile__header">
+        <span className="p-1 color border-primary mobile__header" style={{border:'0.13rem solid'}}>
           NHL
         </span>{" "}
         <h5 className="color mt-2 text-uppercase">Notting Hill Law</h5>{" "}
@@ -45,30 +45,30 @@ export function Header() {
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
           <li className="nav-item active">
-            <Link className="nav-link" to="/">
+            <NavLink className="nav-link" exact to="/">
               Home
               <span className="sr-only">(current)</span>
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/process">
+            <NavLink exact className="nav-link" to="/process">
               Process
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/services">
+            <NavLink exact className="nav-link" to="/services">
               Services
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/resources">
+            <NavLink exact className="nav-link" to="/resources">
               Resources
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/contactus">
+            <NavLink exact className="nav-link" to="/contactus">
               contact
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
             {userInfo ? (
@@ -76,9 +76,9 @@ export function Header() {
                 Logout
               </span>
             ) : (
-              <Link className="nav-link" to="/login">
+              <NavLink exact className="nav-link" to="/login">
                 Login
-              </Link>
+              </NavLink>
             )}
           </li>
         </ul>

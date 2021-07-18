@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Services from "./screens/Services";
 import data from "./data/data.json";
 import Features from "./screens/Features";
-
 import Contact from "./screens/Contact";
 import Footer from "./components/Footer";
 import Home from "./screens/Home";
@@ -217,6 +216,7 @@ function App() {
           )}
         />
       </Switch>
+      <Footer />
     </Router>
   );
 }

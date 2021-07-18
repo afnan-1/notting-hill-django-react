@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -10,9 +10,8 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import MenuItem from "@material-ui/core/MenuItem";
-import { getGuides } from "../actions/guides";
-import { checkAuthenticated } from "../actions/users";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addGuidesForm } from "../store/actions/guidesActions";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -65,34 +64,62 @@ const currencies = [
 ];
 function GuidesForm(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [auth, setAuth] = useState(false);
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  const guidesForm = useSelector((state) => state.guidesForm);
+  const { loading, success, error } = guidesForm;
+  const [body, setBody] = useState({
+    first_name: "",
+    last_name: "",
+    buisness_email: "",
+    website_url: "",
+    company_name: "",
+    phone_number: "",
+    employes: "2",
+  });
   useEffect(() => {
-    if (checkAuthenticated()) {
+    if (userInfo) {
       setAuth(true);
     }
-    else{
-      setAuth(false)
-    }
-  });
-  const [currency, setCurrency] = React.useState("2");
-  const history = useHistory();
+    else{setAuth(false)}
+  }, [userInfo,userLogin]);
+  const [val, setVal] = React.useState("2");
   const handleChange = (event) => {
-    setCurrency(event.target.value);
+    setVal(event.target.value);
+    setBody({ ...body, employes: event.target.value });
   };
-
+  const handleChangeFields = (e) => {
+    setBody({ ...body, [e.target.name]: e.target.value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const link = document.createElement("a");
+    // link.download = "file name";
+    link.target = '_blank';
+    link.href = props.pdf;
+
+    // Append to the document
+    document.body.appendChild(link);
+
+    // Trigger the click event
+    link.click();
+    // Remove the element
+    document.body.removeChild(link);
+    dispatch(addGuidesForm(body));
   };
   return (
     <Modal buttonTxt="Download" buttonTag={"guides"}>
       <Container component="main" maxWidth="sm">
         <CssBaseline />
-        {auth?(
+        {auth ? (
           <div className={classes.paper1}>
             <Typography component="h1" variant="h6">
               Download Your Copy for free
             </Typography>
-            <form className={classes.form} noValidate onSubmit={handleSubmit}>
+            <form className={classes.form} onSubmit={handleSubmit}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -100,9 +127,10 @@ function GuidesForm(props) {
                     required
                     size="small"
                     fullWidth
-                    name="firstName"
+                    name="first_name"
                     label="First Name"
                     type="text"
+                    onChange={handleChangeFields}
                     id="firstName"
                     autoComplete="fname"
                   />
@@ -111,8 +139,9 @@ function GuidesForm(props) {
                   <TextField
                     variant="outlined"
                     required
+                    onChange={handleChangeFields}
                     fullWidth
-                    name="lastName"
+                    name="last_name"
                     size="small"
                     label="Last Name"
                     type="text"
@@ -125,10 +154,12 @@ function GuidesForm(props) {
                     variant="outlined"
                     required
                     fullWidth
+                    type="email"
+                    onChange={handleChangeFields}
                     id="email"
                     label="Buisness Email"
                     size="small"
-                    name="email"
+                    name="buisness_email"
                     autoComplete="email"
                     autoFocus
                   />
@@ -137,8 +168,9 @@ function GuidesForm(props) {
                   <TextField
                     variant="outlined"
                     required
+                    onChange={handleChangeFields}
                     fullWidth
-                    name="companyName"
+                    name="company_name"
                     label="Company Name"
                     type="text"
                     id="companyName"
@@ -151,8 +183,9 @@ function GuidesForm(props) {
                     variant="outlined"
                     required
                     fullWidth
-                    name="websiteUrl"
+                    name="website_url"
                     label="Website Url"
+                    onChange={handleChangeFields}
                     size="small"
                     type="text"
                     id="websiteUrl"
@@ -165,10 +198,11 @@ function GuidesForm(props) {
                     variant="outlined"
                     size="small"
                     required
-                    name="phoneNumber"
+                    name="phone_number"
                     label="Phone Number"
                     type="text"
                     id="phoneNumber"
+                    onChange={handleChangeFields}
                     autoComplete="phone"
                   />
                 </Grid>
@@ -180,8 +214,8 @@ function GuidesForm(props) {
                     fullWidth
                     required
                     size="small"
-                    // defaultValue="Please Select"
-                    value={currency}
+                    name="employes"
+                    value={val}
                     onChange={handleChange}
                     helperText="Please select"
                     variant="outlined"
@@ -195,18 +229,17 @@ function GuidesForm(props) {
                 </Grid>
               </Grid>
 
-              <a href={props.pdf} download target="_blank">
-                <Button
-                  fullWidth
-                  variant="contained"
-                  type="submit"
-                  color="primary"
-                  className={classes.submit}
-                >
-                  <i class="fa fa-download mr-2"></i>
-                  Download
-                </Button>
-              </a>
+              <Button
+                fullWidth
+                variant="contained"
+                type="submit"
+                color="primary"
+                className={classes.submit}
+              >
+                <i className="fa fa-download mr-2"></i>
+                Download
+              </Button>
+
               <Grid container>
                 <Grid item xs>
                   <Link to="/" variant="body2">
@@ -216,7 +249,9 @@ function GuidesForm(props) {
               </Grid>
             </form>
           </div>
-        ):<h3 className="p-3">Please Login to download this guide</h3>}
+        ) : (
+          <h3 className="p-3">Please Login to download this guide</h3>
+        )}
         <Box mt={2}>
           <Copyright />
         </Box>

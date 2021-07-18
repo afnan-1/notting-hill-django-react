@@ -23,7 +23,6 @@ def get_guide(request,id):
 def add_guide_form(request):
     data = request.data
     serializer = GuidesFormSerializer(data=data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response("form data saved")
-    return Response("Error")
+    serializer.is_valid(raise_exception=True)
+    serializer.save(user=request.user)
+    return Response(serializer.data)

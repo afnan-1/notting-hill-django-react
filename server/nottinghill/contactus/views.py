@@ -1,7 +1,7 @@
 from asyncio.tasks import create_task
-from .models import Contact
+from .models import Contact, Visa
 from rest_framework import viewsets
-from .serializers import ContactSerializer
+# from .serializers import ContactSerializer
 from django.conf import settings
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -10,6 +10,7 @@ from asgiref.sync import sync_to_async
 import asyncio
 
 # @sync_to_async
+
 
 @api_view(['POST'])
 def send_email(request):
@@ -20,15 +21,6 @@ def send_email(request):
               ['roman.nadeem@gmail.com'],
               fail_silently=False)
     return Response("Email Sended")
-
-    # asyncio.current_task(send_mail(
-    #     'Subject here',
-    #     'ok',
-    #     'ballypythapa@gmail.com',
-    #     ['roman.nadeem@gmail.com'],
-    #     fail_silently=False,
-    # ))
-
 
 # Create your views here.
 # @api_view(['POST',])
@@ -86,10 +78,24 @@ def send_email(request):
 #     queryset.save()
 #     return Response({"message": "Contact Created", "success": True})
 
+
 @api_view(['POST', ])
 def contact_us(request):
     data = request.data
-    serializer = ContactSerializer(data=data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
+    visa = data['visa']
+    del data['visa']
+    try:
+        contact = Contact(**data)
+        contact.save()
+        for i in visa:
+            if i == "work_visa":
+                i = 'skilled work visa'
+            try:
+                visa = Visa.objects.get(name__contains=i)
+                contact.visa.add(visa)
+            except:
+                print('not found name')
+        return Response("contact added", status=200)
+    except:
+        message="Server error"
+        return Response({message:message},status=400)

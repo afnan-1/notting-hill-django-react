@@ -1,10 +1,20 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 function Footer() {
+  const location = useLocation();
+  if (
+    location.pathname === "/login" ||
+    location.pathname == "/signup" ||
+    location.pathname.startsWith("/dashboard") ||
+    location.pathname.startsWith("/users") ||
+    location.pathname === "/forgot-password"
+  ) {
+    return null;
+  }
   return (
-    <div>
       <div id="footer">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-10 col-xs-10 footer-text">
               <p className='px-3'>
@@ -41,7 +51,6 @@ function Footer() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

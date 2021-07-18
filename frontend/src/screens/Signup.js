@@ -9,12 +9,14 @@ function Signup() {
   const history = useHistory();
   const dispatch = useDispatch();
   const userRegister = useSelector(state => state.userRegister)
-  const {loading,error,userInfo} = userRegister
+  const {loading,error,user} = userRegister
+  const userLogin = useSelector(state=>state.userLogin)
+  const {userInfo} = userLogin
   useEffect(() => {
    if (userInfo){
      history.push('/')
    }
-  }, []);
+  }, [userInfo,userLogin]);
   const [userData, setuserData] = useState({
     name: "",
     email: "",

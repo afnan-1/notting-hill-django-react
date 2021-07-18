@@ -10,5 +10,5 @@ class GuideAdmin(admin.ModelAdmin):
         PointsInline,
     ]
 
-
+admin.site.register(GuidesForm)
 admin.site.register(GuidesPdf,GuideAdmin)

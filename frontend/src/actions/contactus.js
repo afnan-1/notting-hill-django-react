@@ -1,11 +1,6 @@
 import axios from 'axios'
 export const sendEmail = async(name,message)=>{
-    const config={
-        headers: {
-            'Content-type': 'application/json',
-        }
-    }
- await axios.post('http://localhost:8000/contactus/sendingemail/',{name,message},config)
+ await axios.post('http://localhost:8000/contactus/sendingemail/',{name,message})
 }
 
 export const contactUs = async(body)=>{

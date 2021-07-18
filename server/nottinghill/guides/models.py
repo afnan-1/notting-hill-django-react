@@ -23,11 +23,11 @@ class GuidesForm(models.Model):
     user = models.ForeignKey('users.customuser',on_delete=models.SET_NULL,null=True)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    buisness_email = models.EmailField()
+    buisness_email = models.CharField(max_length=100)
     company_name = models.CharField(max_length=100)
-    website_url = models.URLField()
+    website_url = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20)
-    employes = models.IntegerField()
+    employes = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

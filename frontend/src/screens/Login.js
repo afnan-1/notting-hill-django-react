@@ -20,7 +20,6 @@ function Login({ location }) {
     if (userInfo) {
       history.push("/");
     }
-    console.log(userInfo);
   }, [userInfo, dispatch]);
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -28,17 +27,7 @@ function Login({ location }) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(credentials));
-    // setLoader(true);
-    // login(credentials).then((response) => {
-    //   if (response.status === 200) {
-    //     history.push("/");
-    //     setError({ err: false });
-    //     setLoader(false);
-    //   } else {
-    //     setLoader(false);
-    //     setError({ err: true, errMsg: response });
-    //   }
-    // });
+
   };
   return (
     <>
@@ -56,6 +45,11 @@ function Login({ location }) {
         <Link to="/signup" className="text-light">
           {" "}
           Dont have an account? Sign up
+        </Link>{" "}
+        <br/>
+        <Link to="/forgot-password" className="text-light">
+          {" "}
+          Forgot password
         </Link>{" "}
       </div>
       <div>

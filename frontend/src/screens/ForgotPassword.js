@@ -25,10 +25,7 @@ function ForgotPassword() {
         >
           Forgot Password
         </h2>
-        <Link to="/signup" className="text-light">
-          {" "}
-          New Password
-        </Link>{" "}
+        <h6 className='text-light'>New Password</h6>{" "}
       </div>
       <div>
         <div className="px-5 py-2 col-md-6 col-sm-12 mx-auto">

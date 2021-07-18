@@ -1,45 +1,86 @@
+import { LinearProgress } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import React, { useState } from "react";
-import { contactUs, sendEmail } from "../actions/contactus";
 import ScrollToTop from "../components/ScrollToTop";
 import data from "../data/data.json";
+import { contactUs, sendEmail } from "../store/actions/contactusActions";
 
 function Contact() {
-  const JsonData = data.Contact
+  const JsonData = data.Contact;
   const [userContactInfo, setUserContactInfo] = useState({
-    first_name:"",
-    last_name:"",
+    first_name: "",
+    last_name: "",
     email: "",
     telephone: "",
     message: "",
     date: "",
+    visa: [],
     ticket_name: "",
     ticket_desc: "",
     time: "",
     country: "",
     city: "",
   });
-  const [contactDate,setContactDate] = useState({
-    dd:"",
-    yy:"",
-    mm:""
-  })
+  const [contactDate, setContactDate] = useState({
+    dd: "",
+    yy: "",
+    mm: "",
+  });
+  const [visa, setVisa] = useState([]);
+  const [loading, setLoading] = useState(undefined);
+  const [success, setSuccess] = useState(false);
   const handleChange = (e) => {
+    setSuccess(false);
     setUserContactInfo({
       ...userContactInfo,
       [e.target.name]: e.target.value,
-      date:"dd/mm/yy/ "+contactDate.dd+"/"+contactDate.mm+"/"+contactDate.yy
+      date:
+        "dd/mm/yy/ " +
+        contactDate.dd +
+        "/" +
+        contactDate.mm +
+        "/" +
+        contactDate.yy,
     });
+  };
+
+  const handleCheckbox = (e) => {
+    if (e.target.checked) {
+      const items = [...new Set(visa.map((q) => q))];
+      setVisa([...visa, e.target.name]);
+      setUserContactInfo({ ...userContactInfo, visa: [...items] });
+    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendEmail("afnan", "hello mera tim tim tim");
+    setLoading(true);
+    sendEmail(
+      userContactInfo.first_name + " " + userContactInfo.last_name,
+      userContactInfo.message
+    );
     contactUs(userContactInfo).then((data) => {
-      console.log(data);
+      setLoading(false);
+      setSuccess(true);
+      setUserContactInfo({
+        first_name: "",
+        last_name: "",
+        email: "",
+        telephone: "",
+        visa:[],
+        message: "",
+        date: "",
+        ticket_name: "",
+        ticket_desc: "",
+        time: "",
+        country: "",
+        city: "",
+      });
     });
   };
   return (
-    <div>
+    <>
       <ScrollToTop />
+      {loading && <LinearProgress color="secondary" />}
       <div id="contact" className="px-4">
         <div className="ml-2 mx-auto row container">
           <div className="col-md-8">
@@ -51,7 +92,12 @@ function Contact() {
                   get back to you as soon as possible.
                 </p>
               </div>
-              <form name="sentMessage" id="contactForm" method="post" onSubmit={handleSubmit}>
+              <form
+                name="sentMessage"
+                id="contactForm"
+                method="post"
+                onSubmit={handleSubmit}
+              >
                 <div className="row">
                   <div className="col-md-7">
                     <div className="form-group ">
@@ -63,6 +109,7 @@ function Contact() {
                         name="first_name"
                         onChange={handleChange}
                         required="required"
+                        value={userContactInfo.first_name}
                       />
                       <p className="help-block text-danger"></p>
                     </div>
@@ -75,6 +122,7 @@ function Contact() {
                         className="form-control contact__form"
                         placeholder="last Name"
                         name="last_name"
+                        value={userContactInfo.last_name}
                         onChange={handleChange}
                         required="required"
                       />
@@ -87,6 +135,7 @@ function Contact() {
                         type="email"
                         id="email"
                         name="email"
+                        value={userContactInfo.email}
                         className="form-control contact__form"
                         placeholder="Email"
                         onChange={handleChange}
@@ -101,6 +150,7 @@ function Contact() {
                         type="text"
                         id="telephone"
                         name="telephone"
+                        value={userContactInfo.telephone}
                         onChange={handleChange}
                         className="form-control contact__form"
                         placeholder="Phone Number"
@@ -114,6 +164,7 @@ function Contact() {
                       <input
                         type="text"
                         id="country"
+                        value={userContactInfo.country}
                         onChange={handleChange}
                         name="country"
                         className="form-control contact__form"
@@ -129,6 +180,7 @@ function Contact() {
                         type="text"
                         id="city"
                         name="city"
+                        value={userContactInfo.city}
                         onChange={handleChange}
                         className="form-control contact__form"
                         placeholder="City"
@@ -146,6 +198,7 @@ function Contact() {
                         id="innovator"
                         name="innovator"
                         className="form-check-input"
+                        onChange={handleCheckbox}
                       />
                       <label
                         className="form-check-label pl-2"
@@ -163,6 +216,7 @@ function Contact() {
                         id="investor"
                         name="investor"
                         className="form-check-input"
+                        onChange={handleCheckbox}
                       />
                       <label
                         className="form-check-label pl-2"
@@ -179,6 +233,7 @@ function Contact() {
                         type="checkbox"
                         id="start-up"
                         name="start-up"
+                        onChange={handleCheckbox}
                         className="form-check-input"
                       />
                       <label
@@ -195,7 +250,8 @@ function Contact() {
                       <input
                         type="checkbox"
                         id="spouse"
-                        name="spouse"
+                        name="spousal"
+                        onChange={handleCheckbox}
                         className="form-check-input"
                       />
                       <label className="form-check-label pl-2" htmlFor="spouse">
@@ -208,8 +264,9 @@ function Contact() {
                     <div className="form-check">
                       <input
                         type="checkbox"
+                        onChange={handleCheckbox}
                         id="skillwork"
-                        name="skillwork"
+                        name="work_visa"
                         className="form-check-input"
                       />
                       <label
@@ -225,13 +282,15 @@ function Contact() {
                     <div className="form-check">
                       <input
                         type="checkbox"
-                        id="temporarywork"
-                        name="temporarywork"
+                        id="temporaryworkvisa"
+                        onChange={handleCheckbox}
+
+                        name="temporary"
                         className="form-check-input"
                       />
                       <label
                         className="form-check-label pl-2"
-                        htmlFor="temporarywork"
+                        htmlFor="temporaryworkvisa"
                       >
                         Temporary Work Visa (Tier 5)
                       </label>
@@ -243,6 +302,8 @@ function Contact() {
                       <input
                         type="checkbox"
                         id="student"
+                        onChange={handleCheckbox}
+
                         name="student"
                         className="form-check-input"
                       />
@@ -259,6 +320,8 @@ function Contact() {
                     <div className="form-check">
                       <input
                         type="checkbox"
+                        onChange={handleCheckbox}
+
                         id="euss"
                         name="euss"
                         className="form-check-input"
@@ -273,8 +336,9 @@ function Contact() {
                     <div className="form-check">
                       <input
                         type="checkbox"
+                        onChange={handleCheckbox}
                         id="hongkong"
-                        name="hongkong"
+                        name="hong"
                         className="form-check-input"
                       />
                       <label
@@ -292,6 +356,7 @@ function Contact() {
                         type="checkbox"
                         id="other"
                         name="other"
+                        onChange={handleCheckbox}
                         className="form-check-input"
                       />
                       <label className="form-check-label pl-2" htmlFor="other">
@@ -311,6 +376,7 @@ function Contact() {
                       rows="4"
                       placeholder="Message"
                       required
+                      value={userContactInfo.message}
                       onChange={handleChange}
                     ></textarea>
                   </div>
@@ -324,7 +390,9 @@ function Contact() {
                       <input
                         type="text"
                         id="yyyy"
-                        onChange={e=>setContactDate({...contactDate,yy:e.target.value})}
+                        onChange={(e) =>
+                          setContactDate({ ...contactDate, yy: e.target.value })
+                        }
                         name="yyyy"
                         className="form-control contact__form"
                         placeholder="YYYY"
@@ -342,7 +410,9 @@ function Contact() {
                         name="mm"
                         className="form-control contact__form"
                         placeholder="MM"
-                        onChange={e=>setContactDate({...contactDate,mm:e.target.value})}
+                        onChange={(e) =>
+                          setContactDate({ ...contactDate, mm: e.target.value })
+                        }
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -356,7 +426,9 @@ function Contact() {
                         name="dd"
                         className="form-control contact__form"
                         placeholder="DD"
-                        onChange={e=>setContactDate({...contactDate,dd:e.target.value})}
+                        onChange={(e) =>
+                          setContactDate({ ...contactDate, dd: e.target.value })
+                        }
                         required="required"
                       />
                       <p className="help-block text-danger"></p>
@@ -371,6 +443,7 @@ function Contact() {
                         type="text"
                         id="time"
                         name="time"
+                        value={userContactInfo.time}
                         onChange={handleChange}
                         className="form-control contact__form"
                         placeholder="Can you suggest a suitable time? (GMT UK TIME)
@@ -390,6 +463,7 @@ function Contact() {
                         className="form-control contact__form"
                         placeholder="Ticket Name"
                         required="required"
+                        value={userContactInfo.ticket_name}
                         onChange={handleChange}
                       />
                       <p className="help-block text-danger"></p>
@@ -407,6 +481,7 @@ function Contact() {
                         className="form-control contact__form"
                         placeholder="Ticket Description"
                         required="required"
+                        value={userContactInfo.ticket_desc}
                         onChange={handleChange}
                       />
                       <p className="help-block text-danger"></p>
@@ -418,6 +493,11 @@ function Contact() {
                 <button type="submit" className="btn btn-custom btn-lg">
                   Send Message
                 </button>
+                {success && (
+                  <Alert onClose={() => setSuccess(false)} severity="success">
+                    Your message has been sent.
+                  </Alert>
+                )}
               </form>
             </div>
           </div>
@@ -461,7 +541,7 @@ function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
-import axiosInstance from "axios";
+import axiosInstance from "../../axios";
+
 import {
   USER_LOGIN_FAIL,
   USER_LOGIN_SUCCESS,

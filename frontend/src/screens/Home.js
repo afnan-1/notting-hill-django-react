@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ScrollToTop from "../components/ScrollToTop";
 import data from "../data/data.json";
 import Features from "../screens/Features";
-import Footer from "../components/Footer";
+
 import Contact from "../screens/Contact";
 import Services from "../screens/Services";
 import Header from "../components/Header";
@@ -53,7 +53,7 @@ export class Home extends Component {
         <Features data={JsonData.Features} />
         <Services data={JsonData.Services} />
         <Contact data={JsonData.Contact} />
-        <Footer />
+  
       </>
     );
   }
