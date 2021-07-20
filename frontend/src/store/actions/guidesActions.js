@@ -10,6 +10,10 @@ import {
   GUIDES_FORM_REQUEST,
   GUIDES_FORM_FAIL,
   GUIDES_FORM_SUCCESS,
+  GUIDES_TEMP_REQUEST,
+  GUIDES_TEMP_FAIL,
+  GUIDES_TEMP_SUCCESS,
+
 } from "../constants/guidesConstants";
 export const listGuides = () => async (dispatch) => {
   try {
@@ -35,6 +39,22 @@ export const listGuidesDetails = (id) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: GUIDES_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
+export const tempGuidesDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: GUIDES_TEMP_REQUEST });
+    const { data } = await axiosInstance.get(`/guides/tempguide/`);
+    dispatch({ type: GUIDES_TEMP_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: GUIDES_TEMP_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail

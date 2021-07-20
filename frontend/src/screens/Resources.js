@@ -5,17 +5,24 @@ import { Grid, Container, CardActionArea } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";
 import { useDispatch, useSelector } from "react-redux";
-import { listGuides } from "../store/actions/guidesActions";
+import { listGuides, tempGuidesDetails } from "../store/actions/guidesActions";
 import Hidden from "@material-ui/core/Hidden";
 import Skeleton from "@material-ui/lab/Skeleton";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 import { Box } from "@material-ui/core";
-function Resources() {
+function Resources(props) {
+  const matches = useMediaQuery("(max-width:600px)");
   const history = useHistory();
   const dispatch = useDispatch();
   const guidesList = useSelector((state) => state.guidesList);
   const { loading, guideList, error } = guidesList;
+
+  const guidesTemp = useSelector((state) => state.guidesTemp);
+  const { loadingTemp, errorTemp, guide } = guidesTemp;
   useEffect(() => {
     dispatch(listGuides());
+    dispatch(tempGuidesDetails());
   }, [dispatch]);
   return (
     <div id="portfolio">
@@ -36,7 +43,7 @@ function Resources() {
             <div className="text-center text-sm-left">
               <button
                 className="btn btn-custom btn-lg mt-4"
-                onClick={() => history.push("/resources/guides")}
+                onClick={() => history.push(`/resources/${guide.id}`)}
               >
                 Download
               </button>
@@ -56,41 +63,55 @@ function Resources() {
 
         {/* Guides list*/}
         <Grid container>
-          <Grid item container spacing={1} md={9}>
-            {guideList
-              ? guideList.map((v, i) => (
-                  <Grid key={i} item sm={6} md={4}>
-                    <CardActionArea
-                      onClick={() => history.push(`/resources/${v.id}`)}
-                      className="p-2 rounded"
-                    >
-                      <img
-                        src={v.pdf_image}
-                        className="img-fluid"
-                        alt={v.title}
-                      />
-                      <h3 className="text-md-left text-sm-left text-center">
-                        {v.title}
-                      </h3>
-                    </CardActionArea>
-                  </Grid>
-                ))
-              : Array.from(Array(3).keys()).map((i) => (
-                  <Box padding={3} key={i}>
-                    <Skeleton variant="rect" width={250} height={200} />
-                    <Skeleton animation="wave" />
-                  </Box>
-                ))}
-          </Grid>
+          <div className="col-md-9">
+            <Grid item container spacing={1}>
+              {guideList
+                ? guideList.map((v, i) => (
+                    <Grid key={i} item sm={6} md={4}>
+                      <CardActionArea
+                        onClick={() => history.push(`/resources/${v.id}`)}
+                        className="p-2 rounded"
+                      >
+                        <img
+                          src={v.pdf_image}
+                          className="img-fluid"
+                          alt={v.title}
+                        />
+                        <h3 className="text-md-left text-sm-left text-center">
+                          {v.title}
+                        </h3>
+                      </CardActionArea>
+                    </Grid>
+                  ))
+                : Array.from(Array(3).keys()).map((i) => (
+                    <Box padding={3} key={i}>
+                      <Skeleton variant="rect" width={250} height={200} />
+                      <Skeleton animation="wave" />
+                    </Box>
+                  ))}
+            </Grid>
+            {matches && <hr />}
+          </div>
           <Grid item sm={6} md={3} className="mb-3">
-            <h3>Free Guide to Tier 5 Temporary Worker Visa</h3>
-            <p>
-              The Tier 5 Temporary Work Visa allows people to come to the UK to
-              work,if they meet the eligibilty
-            </p>
-            <div className="text-center">
-              <button className="btn btn-custom btn-lg">Read More</button>
-            </div>
+            {guide ? (
+              <>
+                <h3>{guide.title}</h3>
+                <p>{guide.heading_outline_paragraph.substr(0, 220) + "..."}</p>
+                <div className="text-center">
+                  <button
+                    onClick={() => history.push(`/resources/${guide.id}`)}
+                    className="btn btn-custom btn-lg"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </>
+            ) : (
+              <Box padding={3}>
+                <Skeleton variant="rect" width={250} height={200} />
+                <Skeleton animation="wave" />
+              </Box>
+            )}
           </Grid>
         </Grid>
       </Container>

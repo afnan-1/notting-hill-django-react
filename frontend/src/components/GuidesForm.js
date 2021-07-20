@@ -97,7 +97,6 @@ function GuidesForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const link = document.createElement("a");
-    // link.download = "file name";
     link.target = '_blank';
     link.href = props.pdf;
 
