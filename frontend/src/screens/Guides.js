@@ -93,13 +93,13 @@ function Guides({ location, match }) {
                   <div className="mt-md-5 p-md-5">
                     <Carousel navButtonsAlwaysVisible className="text-center">
                       <img
-                        src="/nottingimg/guidesvisa1.png"
+                        src="/static/guidesvisa1.png"
                         alt=""
                         className="img-fluid"
                         width="200"
                       />
                       <img
-                        src="/nottingimg/guidesvisa1.png"
+                        src="/static/guidesvisa1.png"
                         alt=""
                         className="img-fluid"
                         width="200"

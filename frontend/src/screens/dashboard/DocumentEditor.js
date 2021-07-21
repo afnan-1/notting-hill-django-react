@@ -4,7 +4,6 @@ import { Container, Grid } from "@material-ui/core";
 import Stepper from "../../components/dashboard/Stepper";
 import UserBasicInfo from "../../components/dashboard/UserBasicInfo";
 import FileViewer from "react-file-viewer";
-import pdf from "../../static/pdfs/pdf1.pdf";
 import {
   DocumentEditorContainerComponent,
   Toolbar,
@@ -21,7 +20,7 @@ function DocumentEditor() {
             <Grid item sm={12}>
               <DocumentEditorContainerComponent
                 id="container"
-                serviceUrl={pdf}
+                // serviceUrl={pdf}
                 style={{ height: "590px" }}
                 enableToolbar={true}
               />

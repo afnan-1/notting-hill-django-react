@@ -42,7 +42,7 @@ function Footer() {
               style={{ display: "flex", justifyContent: "center" }}
             >
               <img
-                src="/nottingimg/osic.png"
+                src="/static/osic.png"
                 className="fff"
                 width="100"
                 alt=""

@@ -7,7 +7,7 @@ export class features extends Component {
     const JsonData = data.Features;
     return (
       <>
-      <div id="features"  className="text-center" style={{backgroundImage:"url('./img/intro-bg0.png')"}}>
+      <div id="features"  className="text-center" style={{backgroundImage:"url('/static/intro-bg0.png')"}}>
         <ScrollToTop />
         <div className="container ff">
           <div className="col-md-12 col-md-offset-1 section-title">

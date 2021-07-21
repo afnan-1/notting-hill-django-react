@@ -9,12 +9,12 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+from datetime import timedelta
+import os
+from pathlib import Path
 import environ
 env = environ.Env()
 environ.Env.read_env()
-from pathlib import Path
-import os
-from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '!3f#s*%mj&um(!3k_o4(97-3)29g#-rk)mx_e%!=a^+g@3&da4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -69,7 +70,8 @@ ROOT_URLCONF = 'nottinghill.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +79,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
@@ -134,12 +136,15 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'frontend/build/static'),
+    os.path.join(BASE_DIR, 'frontend/build/img'),
+    os.path.join(BASE_DIR, 'frontend/build/nottingimg')
 ]
-MEDIA_ROOT = 'static/images'
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

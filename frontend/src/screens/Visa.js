@@ -32,7 +32,7 @@ function Visa(props) {
               </div>
               <div className="service__imgs">
                 <img
-                  src={`/nottingimg/${props.img}.png`}
+                  src={`/static/${props.img}.png`}
                   className="spousalimg"
                   alt=""
                 />

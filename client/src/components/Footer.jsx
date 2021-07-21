@@ -26,7 +26,7 @@ function Footer() {
             className="col-md-2 col-xs-2"
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <img src="/nottingimg/osic.png" className='fff' width="100" alt="" />
+            <img src="static/osic.png" className='fff' width="100" alt="" />
           </div>
         </div>
       </div>

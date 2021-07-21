@@ -19,7 +19,7 @@ export class Gallery extends Component {
                   <div className="hover-bg">
                     {" "}
                     <a
-                      href="img/portfolio/01-large.jpg"
+                      href="portfolio/01-large.jpg"
                       title="Project Title"
                       data-lightbox-gallery="gallery1"
                     >
@@ -27,7 +27,7 @@ export class Gallery extends Component {
                         <h4>Lorem Ipsum</h4>
                       </div>
                       <img
-                        src="img/portfolio/01-small.jpg"
+                        src="portfolio/01-small.jpg"
                         className="img-responsive"
                         alt="Project Title"
                       />{" "}
@@ -40,7 +40,7 @@ export class Gallery extends Component {
                   <div className="hover-bg">
                     {" "}
                     <a
-                      href="img/portfolio/02-large.jpg"
+                      href="portfolio/02-large.jpg"
                       title="Project Title"
                       data-lightbox-gallery="gallery1"
                     >
@@ -48,7 +48,7 @@ export class Gallery extends Component {
                         <h4>Adipiscing Elit</h4>
                       </div>
                       <img
-                        src="img/portfolio/02-small.jpg"
+                        src="portfolio/02-small.jpg"
                         className="img-responsive"
                         alt="Project Title"
                       />{" "}
@@ -61,7 +61,7 @@ export class Gallery extends Component {
                   <div className="hover-bg">
                     {" "}
                     <a
-                      href="img/portfolio/03-large.jpg"
+                      href="portfolio/03-large.jpg"
                       title="Project Title"
                       data-lightbox-gallery="gallery1"
                     >

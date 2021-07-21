@@ -16,7 +16,7 @@ export class Home extends Component {
           <div
             className="intro"
             style={{
-              background: "url('./img/intro-bg1.png')",
+              background: "url('/static/intro-bg1.png')",
               backgroundSize: "cover",
             }}
           >
@@ -31,16 +31,17 @@ export class Home extends Component {
                     <p>
                       We provide quick and easy expert <br /> legal advice.
                     </p>
-                    <a
-                      href="#contact"
-                      className="btn btn-custom btn-lg page-scroll"
+                    <button
+                    onClick={()=>this.props.history.push('/contactus')}
+                      
+                      className="btn btn-custom"
                     >
                       Get in touch
-                    </a>{" "}
+                    </button>{" "}
                   </div>
                   <div className="col-md-6 col-sm-12 col-md-offset-2 ">
                     <img
-                      src="/img/intro-logo.png"
+                      src="/static/intro-logo.png"
                       className="intro-logo"
                       alt="logo"
                     />

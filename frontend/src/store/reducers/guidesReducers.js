@@ -13,7 +13,7 @@ import {
   GUIDES_TEMP_SUCCESS,
 } from "../constants/guidesConstants";
 
-export const guidesListReducer = (state = { guideList: [] }, action) => {
+export const guidesListReducer = (state = {}, action) => {
   switch (action.type) {
     case GUIDES_LIST_REQUEST:
       return { loading: true };

@@ -52,7 +52,7 @@ function Resources(props) {
           <Hidden only={["sm", "xs"]}>
             <Grid item xs={false} md={6}>
               <img
-                src="/nottingimg/resources.png"
+                src="/static/resources.png"
                 className="img-fluid"
                 alt=""
               />

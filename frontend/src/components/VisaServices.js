@@ -9,7 +9,7 @@ function VisaServices(props) {
       <h1>{props.heading}</h1>
       <div className="points">
         <div className="point1">
-          <img src="/nottingimg/6.png" className="rightside__img" alt="" />
+          <img src="/static/6.png" className="rightside__img" alt="" />
           <div>
             <h4>
               <ins>{props.innovation}</ins>
@@ -21,7 +21,7 @@ function VisaServices(props) {
           ""
         ) : (
           <div className="point1">
-            <img src="/nottingimg/7.png" className="rightside__img" alt="" />
+            <img src="/static/7.png" className="rightside__img" alt="" />
             <div>
               <h4>
                 <ins>{props.viability}</ins>
@@ -37,7 +37,7 @@ function VisaServices(props) {
           ""
         ) : (
           <div className="point1">
-            <img src="/nottingimg/8.png" className="rightside__img" alt="" />
+            <img src="/static/8.png" className="rightside__img" alt="" />
             <div>
               <h4>
                 <ins>{props.scalibility}</ins>
@@ -50,25 +50,25 @@ function VisaServices(props) {
           ""
         ) : (
           <div className="point1">
-            <img src="/nottingimg/9.png" className="rightside__img" alt="" />
+            <img src="/static/9.png" className="rightside__img" alt="" />
             <p className="ml-4">{props.point4}</p>
           </div>
         )}
         {props.visatype === "spousalvisa" && (
           <div className="point1">
-            <img src="/nottingimg/9.png" className="rightside__img" alt="" />
+            <img src="/static/9.png" className="rightside__img" alt="" />
             <p className="ml-4">{props.point4}</p>
           </div>
         )}
         {props.visatype == "startup" && (
           <>
             <div className="point1">
-              <img src="/nottingimg/9.png" className="rightside__img" alt="" />
+              <img src="/static/9.png" className="rightside__img" alt="" />
               <p className="ml-4">{props.point4}</p>
             </div>
             <div className="point1">
               <img
-                src="/nottingimg/startup5.png"
+                src="/static/startup5.png"
                 className="rightside__img"
                 alt=""
               />

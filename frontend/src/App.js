@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Services from "./screens/Services";
 import data from "./data/data.json";
 import Features from "./screens/Features";
@@ -21,7 +21,7 @@ import DocumentEditor from "./screens/dashboard/DocumentEditor";
 function App() {
   const JsonData = data;
   return (
-    <Router>
+    <Router hashType="noslash">
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -32,28 +32,28 @@ function App() {
         <Route exact path="/resources/:slug/" component={Guides} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/dashboard/profile" component={Dashboard} />
-        <Route exact path="/dashboard/documents" component={Documents} />
-        <Route
+        {/* <Route exact path="/dashboard" component={Dashboard} /> */}
+        {/* <Route exact path="/dashboard/profile" component={Dashboard} /> */}
+        {/* <Route exact path="/dashboard/documents" component={Documents} /> */}
+        {/* <Route
           exact
           path="/dashboard/documents/editor"
           component={DocumentEditor}
-        />
-        <Route
+        /> */}
+        {/* <Route
           exact
           path="/dashboard/documents/upload"
           component={UploadDocuments}
-        />
+        /> */}
 
         <Route path="/forgot-password" component={ForgotPassword} />
         <Route path="/users/password_reset/" component={NewPassword} />
 
-        <Route
+        {/* <Route
           exact
           path="/dashboard/documents/create"
           component={DocumentGenerator}
-        />
+        /> */}
         <Route
           path="/spousalvisa"
           render={() => (
@@ -70,7 +70,7 @@ function App() {
                 point3="UK sponsor has adequate accomodation"
                 point4="Meet the English Language requirement"
                 visatype="spousalvisa"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -89,7 +89,7 @@ function App() {
                 point1="You must be a BN(O) citizen residing in Hong Kong or the UK"
                 point2="Must have a valid travel document"
                 visatype="hongkong"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -109,7 +109,7 @@ function App() {
                 point2="Meet the English Language requirement"
                 point3="Have enough funds to maintain yourself"
                 visatype="workvisa"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -133,7 +133,7 @@ function App() {
                 point4="Your business idea must be endorsed by an approved UK endorsing body"
                 point5="Meet the English Language requirement (CEFR Level B2--equivalent to IELTS 5.5)"
                 visatype="startup"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -153,7 +153,7 @@ function App() {
                 point2="Must have enough funds to support yourself (course fees + living costs + immigration Health Surcharge)"
                 point3="Meet the English Language requirement "
                 visatype="student"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -171,7 +171,7 @@ function App() {
                 heading="Here are some of the requirements:"
                 point1="Have sponsorship from an employer"
                 visatype="temporary"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -190,7 +190,7 @@ function App() {
                 point1="ID documents such as passport or National ID card"
                 point2="Proof of residence in the UK"
                 visatype="euss"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}
@@ -210,7 +210,7 @@ function App() {
                 point2="Your business idea must be endorsed by an approved UK endorsing body"
                 point3="Meet the English Language requirement (CEFR Level B2-equivalent to IELTS 5.5)"
                 visatype="innovator"
-                backgroundImage="./nottingimg/14.png"
+                backgroundImage="/static/14.png"
               />
             </>
           )}

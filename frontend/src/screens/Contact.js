@@ -490,7 +490,7 @@ function Contact() {
                 </div>
 
                 <div id="success"></div>
-                <button type="submit" className="btn btn-custom btn-lg">
+                <button type="submit" className="btn btn-custom">
                   Send Message
                 </button>
                 {success && (

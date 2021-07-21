@@ -21,47 +21,47 @@
         ]
     },
     "Services": [{
-            "icon": "/nottingimg/12.png",
+            "icon": "/static/12.png",
             "name": "Spousal Visa",
             "path": "/spousalvisa"
         },
         {
-            "icon": "/nottingimg/innovator.png",
+            "icon": "/static/innovator.png",
             "name": "Innovator Visa",
             "path": "/innovatorvisa"
         },
         {
-            "icon": "nottingimg/15.png",
+            "icon": "static/15.png",
             "name": "Work Visa",
             "path": "/workvisa"
         },
         {
-            "icon": "/nottingimg/21.png",
+            "icon": "/static/21.png",
             "name": "Investor Visa",
             "path": "/investorvisa"
         },
         {
-            "icon": "/nottingimg/17.png",
+            "icon": "/static/17.png",
             "name": "Student Visa",
             "path": "studentvisa"
         },
         {
-            "icon": "/nottingimg/23.png",
+            "icon": "/static/23.png",
             "name": "Temporary Work Visa",
             "path": "temporaryworkvisa"
         },
         {
-            "icon": "/nottingimg/25.png",
+            "icon": "/static/25.png",
             "name": "EUSS",
             "path": "/eussapplication"
         },
         {
-            "icon": "/nottingimg/hongkong.png",
+            "icon": "/static/hongkong.png",
             "name": "Hong Kong",
             "path": "/hongkong"
         },
         {
-            "icon": "/nottingimg/startup.png",
+            "icon": "/static/startup.png",
             "name": "Start-up Visa",
             "path": "/startupvisa"
         }

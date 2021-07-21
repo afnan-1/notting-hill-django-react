@@ -18,7 +18,7 @@ function SposualVisa() {
           </div>
         </div>
         <div className="service__imgs">
-          <img src="/nottingimg/spousalnew.png" className="spousalimg" alt="" />
+          <img src="/static/spousalnew.png" className="spousalimg" alt="" />
         </div>
       </div>
       <ServiceRightSideInfo 
