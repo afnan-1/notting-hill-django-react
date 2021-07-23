@@ -70,7 +70,7 @@ ROOT_URLCONF = 'nottinghill.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')
+        'DIRS': [os.path.join(BASE_DIR, 'build')
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -139,9 +139,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'frontend/build/static'),
-    os.path.join(BASE_DIR, 'frontend/build/img'),
-    os.path.join(BASE_DIR, 'frontend/build/nottingimg')
+    os.path.join(BASE_DIR, 'build/static'),
+    os.path.join(BASE_DIR, 'build/img'),
+    os.path.join(BASE_DIR, 'build/nottingimg')
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
