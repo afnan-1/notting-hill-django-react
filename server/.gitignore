@@ -118,7 +118,6 @@ notthinghillaw.pem
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
