@@ -33,8 +33,6 @@ function Signup() {
   return (
     <>
       {loading && <LinearProgress color="secondary" />}
-
-      
       <div
         className="authHeaderColor text-center p-4"
         //   style={{ paddingTop: "130px" }}
