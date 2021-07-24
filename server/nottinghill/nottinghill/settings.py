@@ -63,7 +63,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8000",
     "http://nottinghilllaw.co.uk.s3-website.ap-south-1.amazonaws.com",
-    "https://nottinghilllaw.co.uk"
+    "https://nottinghilllaw.co.uk",
+    "http://ec2-13-127-240-132.ap-south-1.compute.amazonaws.com"
 ]
 ROOT_URLCONF = 'nottinghill.urls'
 
