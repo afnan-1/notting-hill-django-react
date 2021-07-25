@@ -13,10 +13,15 @@ function Signup() {
   const userLogin = useSelector(state=>state.userLogin)
   const {userInfo} = userLogin
   useEffect(() => {
+    document.title = "Sign up / Notting Hill Law"
+
    if (userInfo){
      history.push('/')
    }
-  }, [userInfo,userLogin]);
+   if (user){
+     history.push('/login')
+   }
+  }, [userInfo,userLogin,user]);
   const [userData, setuserData] = useState({
     name: "",
     email: "",

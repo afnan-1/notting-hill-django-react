@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const baseURL = 'http://ec2-13-127-240-132.ap-south-1.compute.amazonaws.com';
+// const baseURL = 'http://ec2-13-127-240-132.ap-south-1.compute.amazonaws.com';
+const baseURL = "http://127.0.0.1:8000"
 
 const axiosInstance = axios.create({
     baseURL: baseURL,

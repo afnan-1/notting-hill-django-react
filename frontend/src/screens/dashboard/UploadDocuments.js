@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import SideMenu from "../../components/dashboard/SideMenu";
 import { Container, Button, Grid } from "@material-ui/core";
 import { FileDrop } from "react-file-drop";
-import "../../static/dashboard.css";
+// import "../../static/dashboard.css";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { withStyles } from "@material-ui/core/styles";
 import ArrowDropDownCircleOutlinedIcon from "@material-ui/icons/ArrowDropDownCircleOutlined";

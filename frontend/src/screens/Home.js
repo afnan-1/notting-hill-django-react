@@ -5,9 +5,9 @@ import Features from "../screens/Features";
 
 import Contact from "../screens/Contact";
 import Services from "../screens/Services";
-import Header from "../components/Header";
 export class Home extends Component {
   render() {
+    document.title = "Notting Hill Law"
     const JsonData = data;
     return (
       <>
@@ -16,7 +16,7 @@ export class Home extends Component {
           <div
             className="intro"
             style={{
-              background: "url('/static/intro-bg1.png')",
+              background: "url('/static/intro-bg1.png') 50% 50%",
               backgroundSize: "cover",
             }}
           >

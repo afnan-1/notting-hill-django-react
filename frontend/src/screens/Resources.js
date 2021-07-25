@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../static/guides.scss";
-import "../static/resources.css";
 import { Grid, Container, CardActionArea } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";
@@ -11,6 +10,7 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import { Box } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 function Resources(props) {
   const matches = useMediaQuery("(max-width:600px)");
   const history = useHistory();
@@ -21,9 +21,10 @@ function Resources(props) {
   const guidesTemp = useSelector((state) => state.guidesTemp);
   const { loadingTemp, errorTemp, guide } = guidesTemp;
   useEffect(() => {
+    document.title = "Resources / Notting Hill Law"
     dispatch(listGuides());
     dispatch(tempGuidesDetails());
-  }, [dispatch]);
+  }, [dispatch,history]);
   return (
     <div id="portfolio">
       <ScrollToTop />
@@ -51,11 +52,7 @@ function Resources(props) {
           </Grid>
           <Hidden only={["sm", "xs"]}>
             <Grid item xs={false} md={6}>
-              <img
-                src="/static/resources.png"
-                className="img-fluid"
-                alt=""
-              />
+              <img src="/static/resources.png" className="img-fluid" alt="" />
             </Grid>
           </Hidden>
         </Grid>
@@ -92,8 +89,8 @@ function Resources(props) {
             </Grid>
             {matches && <hr />}
           </div>
-          <Grid item sm={6} md={3} className="mb-3">
-            {guide ? (
+          <Grid item sm={6} xs={12} md={3} className="mb-3 p-3">
+            {guide && (
               <>
                 <h3>{guide.title}</h3>
                 <p>{guide.heading_outline_paragraph.substr(0, 220) + "..."}</p>
@@ -106,11 +103,17 @@ function Resources(props) {
                   </button>
                 </div>
               </>
-            ) : (
+            )}
+            {loadingTemp && (
               <Box padding={3}>
                 <Skeleton variant="rect" width={250} height={200} />
                 <Skeleton animation="wave" />
               </Box>
+            )}
+            {errorTemp && (
+              <Alert className="mt-2" severity="warning">
+                {errorTemp}
+              </Alert>
             )}
           </Grid>
         </Grid>

@@ -10,6 +10,7 @@ function ForgotPassword() {
   const dispatch = useDispatch();
   const userForgotPassword = useSelector((state) => state.userForgotPassword);
   const { loading, success, error } = userForgotPassword;
+  document.title = "Forgot Password / Notting Hill Law"
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(forgotPassword(email));

@@ -3,15 +3,16 @@ import VisaServices from "../components/VisaServices";
 import ScrollToTop from "../components/ScrollToTop";
 import { Container } from "@material-ui/core";
 function Visa(props) {
+  document.title = props.title;
   return (
     <>
       <ScrollToTop />
       <div
         style={{
           backgroundImage: `url('${props.backgroundImage}')`,
-          backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          paddingBottom:"200px"
+          backgroundRepeat: "no-repeat",
+          paddingBottom: "200px",
         }}
       >
         <Container maxWidth="lg">

@@ -18,7 +18,7 @@ import {
 export const listGuides = () => async (dispatch) => {
   try {
     dispatch({ type: GUIDES_LIST_REQUEST });
-    const { data } = await axiosInstance.get("/guides/pdf/");
+    const { data } = await axiosInstance.get("/api/guides/pdf/");
     dispatch({ type: GUIDES_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -34,7 +34,7 @@ export const listGuides = () => async (dispatch) => {
 export const listGuidesDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: GUIDES_DETAILS_REQUEST });
-    const { data } = await axiosInstance.get(`/guides/pdf/${id}/`);
+    const { data } = await axiosInstance.get(`/api/guides/pdf/${id}/`);
     dispatch({ type: GUIDES_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -50,7 +50,7 @@ export const listGuidesDetails = (id) => async (dispatch) => {
 export const tempGuidesDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: GUIDES_TEMP_REQUEST });
-    const { data } = await axiosInstance.get(`/guides/tempguide/`);
+    const { data } = await axiosInstance.get(`/api/guides/tempguide/`);
     dispatch({ type: GUIDES_TEMP_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -76,7 +76,7 @@ export const addGuidesForm = (body) => async (dispatch, getState) => {
   }
     dispatch({ type: GUIDES_FORM_REQUEST });
     const { data } = await axiosInstance.post(
-      `/guides/addguideform/`,
+      `/api/guides/addguideform/`,
       body,
       config
     );

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop";
-import Header from "../components/Header";
 import data from "../data/data.json";
 
 export class Services extends Component {
   render() {
+    document.title = "Notting Hill Law"
+
     const JsonData = data.Services;
     return (
       <>

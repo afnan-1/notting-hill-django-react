@@ -4,10 +4,12 @@ import data from "../data/data.json";
 
 export class features extends Component {
   render() {
+    document.title = "Notting Hill Law"
+
     const JsonData = data.Features;
     return (
       <>
-      <div id="features"  className="text-center" style={{backgroundImage:"url('/static/intro-bg0.png')"}}>
+      <div id="features"  className="text-center" style={{background:"url('/static/intro-bg0.png 50% 0%') 50% 0%",backgroundSize:"cover"}}>
         <ScrollToTop />
         <div className="container ff">
           <div className="col-md-12 col-md-offset-1 section-title">

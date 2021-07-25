@@ -23,13 +23,11 @@ export const register = (body) => async (dispatch) => {
       type: USER_REGISTER_REQUEST,
     });
 
-    const { data } = await axiosInstance.post("/users/", body);
+    const { data } = await axiosInstance.post("/api/users/register/", body);
     dispatch({
       type: USER_REGISTER_SUCCESS,
       payload: data,
     });
-    localStorage.setItem("userInfo", JSON.stringify(data));
-
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,
@@ -47,7 +45,7 @@ export const login = (body) => async (dispatch) => {
       type: USER_LOGIN_REQUEST,
     });
 
-    const { data } = await axiosInstance.post("/users/login/", body);
+    const { data } = await axiosInstance.post("/api/users/login/", body);
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
@@ -75,7 +73,7 @@ export const forgotPassword = (email) => async (dispatch) => {
       type: USER_FORGOT_REQUEST,
     });
 
-    const { data } = await axiosInstance.post("/users/password_reset/", {
+    const { data } = await axiosInstance.post("/api/users/password_reset/", {
       email: email,
     });
     dispatch({
@@ -100,7 +98,7 @@ export const resetPassword = (password, token) => async (dispatch) => {
     });
 
     const { data } = await axiosInstance.post(
-      "/users/password_reset/confirm/",
+      "/api/users/password_reset/confirm/",
       { password: password, token: token }
     );
     dispatch({

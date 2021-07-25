@@ -205,7 +205,6 @@ a:focus,
 
 
 .intro .overlay {
-  background: rgba(175, 175, 175, 0.1);
   padding-bottom: 250px ;
 }
 
@@ -214,7 +213,6 @@ a:focus,
   color: #5ca9fb;
   font-size: 52px;
   font-weight: 700;
-  /* text-transform: uppercase; */
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -840,7 +838,10 @@ body, html {
   .mobile__header{
     display: none;
   }
-
+  .intro .overlay {
+    padding-bottom: 80px ;
+  }
+  
 
   .workvisa {
     background-position: center;

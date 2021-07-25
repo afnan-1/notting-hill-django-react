@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetPassword } from "../store/actions/userActions";
 
 function NewPassword({ location, history }) {
+  document.title = "New Password / Notting Hill Law"
   const dispatch = useDispatch();
   const userResetPassword = useSelector((state) => state.userResetPassword);
   const { loading, error, success } = userResetPassword;

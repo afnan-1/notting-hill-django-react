@@ -6,6 +6,7 @@ import data from "../data/data.json";
 import { contactUs, sendEmail } from "../store/actions/contactusActions";
 
 function Contact() {
+  document.title = "Notting Hill Law"
   const JsonData = data.Contact;
   const [userContactInfo, setUserContactInfo] = useState({
     first_name: "",

@@ -21,6 +21,7 @@ function Guides({ location, match }) {
   const guidesDetails = useSelector((state) => state.guidesDetails);
   const { loading, error, guide } = guidesDetails;
   useEffect(() => {
+    document.title = "Guides / Notting Hill Law"
     dispatch(listGuidesDetails(guideId));
   }, [dispatch]);
   return (

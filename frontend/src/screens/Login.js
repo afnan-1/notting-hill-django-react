@@ -17,6 +17,8 @@ function Login({ location }) {
     password: "",
   });
   useEffect(() => {
+    document.title = "Login / Notting Hill Law"
+
     if (userInfo) {
       history.push("/");
     }
@@ -27,7 +29,6 @@ function Login({ location }) {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(credentials));
-
   };
   return (
     <>
@@ -46,7 +47,7 @@ function Login({ location }) {
           {" "}
           Dont have an account? Sign up
         </Link>{" "}
-        <br/>
+        <br />
         <Link to="/forgot-password" className="text-light">
           {" "}
           Forgot password
@@ -54,7 +55,7 @@ function Login({ location }) {
       </div>
       <div>
         <div className="px-5 col-md-6 col-sm-12 mx-auto">
-          {error&& (
+          {error && (
             <Alert className="mt-2" severity="error">
               {error}
             </Alert>
