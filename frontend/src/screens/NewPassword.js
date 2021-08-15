@@ -50,7 +50,7 @@ function NewPassword({ location, history }) {
             {success &&
               setTimeout(() => {
                 history.push("/login");
-              }, 2000)}{" "}
+              }, 1000)}{" "}
           </span>
           {error && <Alert severity="error">{error}</Alert>}
           <Grid container direction="column">

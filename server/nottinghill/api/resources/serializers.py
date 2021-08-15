@@ -1,7 +1,6 @@
-from django.db import models
-from django.db.models import fields
+
 from rest_framework import serializers
-from .models import GuidesForm, GuidesPdf,GuidesPoint
+from .models import GuidesForm,GuidesPoint, GuidesResources
 
 
 class GuidesPointSerializer(serializers.ModelSerializer):
@@ -13,8 +12,8 @@ class GuidesPointSerializer(serializers.ModelSerializer):
 class GuidesSerializer(serializers.ModelSerializer):
     guide = GuidesPointSerializer(many=True)
     class Meta:
-        model = GuidesPdf
-        fields = ['title','guide','id','heading','heading_outline_paragraph','pdf','pdf_image','guide_image']
+        model = GuidesResources
+        fields = '__all__'
     
 
 class GuidesFormSerializer(serializers.ModelSerializer):

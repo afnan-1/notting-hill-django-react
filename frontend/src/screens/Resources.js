@@ -21,12 +21,12 @@ function Resources(props) {
   const guidesTemp = useSelector((state) => state.guidesTemp);
   const { loadingTemp, errorTemp, guide } = guidesTemp;
   useEffect(() => {
-    document.title = "Resources / Notting Hill Law"
+    document.title = "Resources / Notting Hill Law";
     dispatch(listGuides());
     dispatch(tempGuidesDetails());
-  }, [dispatch,history]);
+  }, [dispatch, history]);
   return (
-    <div id="portfolio">
+    <div id="portfolio" style={{minHeight:"100vh"}}>
       <ScrollToTop />
       <Container style={{ maxWidth: "1500px" }}>
         <Grid container>
@@ -44,7 +44,9 @@ function Resources(props) {
             <div className="text-center text-sm-left">
               <button
                 className="btn btn-custom btn-lg mt-4"
-                onClick={() => history.push(`/resources/${guide.id}`)}
+                onClick={() =>
+                  guide && history.push(`/resources/${guide.id}`)
+                }
               >
                 Download
               </button>
@@ -70,12 +72,12 @@ function Resources(props) {
                         className="p-2 rounded"
                       >
                         <img
-                          src={v.pdf_image}
+                          src={v.thumbnail_image}
                           className="img-fluid"
-                          alt={v.title}
+                          alt={v.thumbnail_title}
                         />
                         <h3 className="text-md-left text-sm-left text-center">
-                          {v.title}
+                          {v.thumbnail_title}
                         </h3>
                       </CardActionArea>
                     </Grid>
@@ -92,7 +94,7 @@ function Resources(props) {
           <Grid item sm={6} xs={12} md={3} className="mb-3 p-3">
             {guide && (
               <>
-                <h3>{guide.title}</h3>
+                <h3>{guide.thumbnail_title}</h3>
                 <p>{guide.heading_outline_paragraph.substr(0, 220) + "..."}</p>
                 <div className="text-center">
                   <button

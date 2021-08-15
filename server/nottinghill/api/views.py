@@ -9,6 +9,8 @@ from rest_framework.response import Response
 # Create your views here.
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
+        attrs['email'] = attrs['email'].lower()
+        print(attrs)
         data = super().validate(attrs)
 
         serializer = UserSerializerWithToken(self.user).data
@@ -28,7 +30,7 @@ def register_user(request):
         user = CustomUser.objects.create(
             name=data['name'],
             date_of_birth =data['date_of_birth'],
-            email=data['email'],
+            email=data['email'].lower(),
             password=make_password(data['password'])
         )
         serializer = UserSerializerWithToken(user, many=False)

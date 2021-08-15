@@ -8,7 +8,7 @@ class Contact(models.Model):
     telephone = models.CharField(max_length=50)
     message = models.TextField(max_length=5000)
     created_at = models.DateTimeField(auto_now_add=True)
-    visa = models.ManyToManyField('visa')
+    visa = models.CharField(max_length=50)
     date = models.CharField(max_length=500)
     ticket_name = models.CharField(max_length=500,)
     ticket_desc = models.CharField(max_length=1000)
@@ -24,10 +24,9 @@ class Contact(models.Model):
 
 
 
-
-class Visa(models.Model):
-    name = models.CharField(max_length=50,null=True,blank=True)
-    class Meta:
-        verbose_name_plural = "Visa Application"
+class NottingHillLawLogo(models.Model):
+    logo = models.ImageField(upload_to='logo/',null=True,blank=True)
+    
     def __str__(self):
-        return self.name
+        return "Logo"
+    

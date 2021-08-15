@@ -18,6 +18,7 @@ import ForgotPassword from "./screens/ForgotPassword";
 import NewPassword from "./screens/NewPassword";
 import UploadDocuments from "./screens/dashboard/UploadDocuments";
 import DocumentEditor from "./screens/dashboard/DocumentEditor";
+import NotFound404 from "./screens/NotFound404";
 function App() {
   const JsonData = data;
   return (
@@ -25,9 +26,9 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/services" component={Services} />
-        <Route path="/process" component={Features} />
-        <Route path="/contactus" component={Contact} />
+        <Route exact path="/services" component={Services} />
+        <Route exact path="/process" component={Features} />
+        <Route exact path="/contactus" component={Contact} />
         <Route exact path="/resources" component={Resources} />
         <Route exact path="/resources/:slug/" component={Guides} />
         <Route exact path="/signup" component={Signup} />
@@ -62,7 +63,7 @@ function App() {
                 img="spousalnew"
                 title="Spousal Visa"
                 headingParagraph="Our expert legal advisors will guide you through the visa process
-            and make this experience hassle-free for you"
+                and make this experience hassle-free for you"
                 headingMain="Let us reunite you with your spouse!"
                 heading="Key requirments:"
                 point1="A genuine relationship between the applicant and the UK sponsor"
@@ -114,6 +115,19 @@ function App() {
             </>
           )}
         />
+        <Route path="/investorvisa" exact>
+          <Visa
+            img="21"
+            title="Investor Visa"
+            headingParagraph="Our specialists can provide you with expert advice to see if you qualify for a Tier 1 Investor Visa"
+            headingMain="Do you want to invest in a business in the UK?"
+            heading="Here are some of the requirements:"
+            point1="Access to £2 million that is in a regulated financial insititution and disposable in the UK"
+            point2="Opened an account with a UK regulated bank for the purposes of investing"
+            visatype="investor"
+            backgroundImage="/static/14.png"
+          />
+        </Route>
         <Route
           path="/startupvisa"
           render={() => (
@@ -215,6 +229,7 @@ function App() {
             </>
           )}
         />
+        <Route component={NotFound404} />
       </Switch>
       <Footer />
     </Router>

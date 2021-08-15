@@ -6,7 +6,7 @@ import data from "../data/data.json";
 import { contactUs, sendEmail } from "../store/actions/contactusActions";
 
 function Contact() {
-  document.title = "Notting Hill Law"
+  document.title = "Notting Hill Law";
   const JsonData = data.Contact;
   const [userContactInfo, setUserContactInfo] = useState({
     first_name: "",
@@ -15,7 +15,7 @@ function Contact() {
     telephone: "",
     message: "",
     date: "",
-    visa: [],
+    visa: "",
     ticket_name: "",
     ticket_desc: "",
     time: "",
@@ -27,7 +27,6 @@ function Contact() {
     yy: "",
     mm: "",
   });
-  const [visa, setVisa] = useState([]);
   const [loading, setLoading] = useState(undefined);
   const [success, setSuccess] = useState(false);
   const handleChange = (e) => {
@@ -45,19 +44,15 @@ function Contact() {
     });
   };
 
-  const handleCheckbox = (e) => {
-    if (e.target.checked) {
-      const items = [...new Set(visa.map((q) => q))];
-      setVisa([...visa, e.target.name]);
-      setUserContactInfo({ ...userContactInfo, visa: [...items] });
-    }
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     sendEmail(
       userContactInfo.first_name + " " + userContactInfo.last_name,
-      userContactInfo.message
+      userContactInfo.message,
+      userContactInfo.visa,
+      userContactInfo.email,
+      userContactInfo.telephone
     );
     contactUs(userContactInfo).then((data) => {
       setLoading(false);
@@ -67,7 +62,7 @@ function Contact() {
         last_name: "",
         email: "",
         telephone: "",
-        visa:[],
+        visa: "",
         message: "",
         date: "",
         ticket_name: "",
@@ -75,6 +70,7 @@ function Contact() {
         time: "",
         country: "",
         city: "",
+        date: "",
       });
     });
   };
@@ -192,184 +188,43 @@ function Contact() {
                   </div>
                   {/* <div className="check-1"> */}
                   <div className="col-md-7">
-                    <h6>Type of Visa</h6>
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="innovator"
-                        name="innovator"
-                        className="form-check-input"
-                        onChange={handleCheckbox}
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="innovator"
-                      >
-                        Innovator Visa (Tier 1)
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
+                    <h6>WHAT ARE YOU INTERESTED IN?</h6>
+                    <select
+                      name="visa"
+                      onChange={handleChange}
+                      className="form-control contact__form"
+                    >
+                      <option selected>Select</option>
+                      <option value="GETTING MARRIED">
+                        1. GETTING MARRIED
+                      </option>
+                      <option value="STARTING A BUISNESS">
+                        2. STARTING A BUISNESS
+                      </option>
+                      <option value="INVESTING">3. INVESTING</option>
+                      <option value="WORKING IN THE UK">
+                        4. WORKING IN THE UK
+                      </option>
+                      <option value="STUDYING IN THE UK">
+                        5. STUDYING IN THE UK
+                      </option>
+                      <option value="STUDYING IN THE UK">
+                        6. BRITISH PASSPORT
+                      </option>
+                      <option value="VISITING IN THE UK">
+                        7. VISITING IN THE UK
+                      </option>
+                      <option value="SWITCHING TO ANOTHER VISA">
+                        8. SWITCHING TO ANOTHER VISA
+                      </option>
+                      <option value="OTHER">9. OTHER</option>
+                    </select>
                   </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="investor"
-                        name="investor"
-                        className="form-check-input"
-                        onChange={handleCheckbox}
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="investor"
-                      >
-                        Investor Visa (Tier 1)
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="start-up"
-                        name="start-up"
-                        onChange={handleCheckbox}
-                        className="form-check-input"
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="start-up"
-                      >
-                        Start-up Visa (Tier 1)
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="spouse"
-                        name="spousal"
-                        onChange={handleCheckbox}
-                        className="form-check-input"
-                      />
-                      <label className="form-check-label pl-2" htmlFor="spouse">
-                        Spouse Visa
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        onChange={handleCheckbox}
-                        id="skillwork"
-                        name="work_visa"
-                        className="form-check-input"
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="skillwork"
-                      >
-                        Skilled Work Visa (Tier 2)
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="temporaryworkvisa"
-                        onChange={handleCheckbox}
-
-                        name="temporary"
-                        className="form-check-input"
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="temporaryworkvisa"
-                      >
-                        Temporary Work Visa (Tier 5)
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="student"
-                        onChange={handleCheckbox}
-
-                        name="student"
-                        className="form-check-input"
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="student"
-                      >
-                        Student Visa (Tier 4)
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        onChange={handleCheckbox}
-
-                        id="euss"
-                        name="euss"
-                        className="form-check-input"
-                      />
-                      <label className="form-check-label pl-2" htmlFor="euss">
-                        EUSS
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        onChange={handleCheckbox}
-                        id="hongkong"
-                        name="hong"
-                        className="form-check-input"
-                      />
-                      <label
-                        className="form-check-label pl-2"
-                        htmlFor="hongkong"
-                      >
-                        Hong Kong BN(O) Visa
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div className="form-check">
-                      <input
-                        type="checkbox"
-                        id="other"
-                        name="other"
-                        onChange={handleCheckbox}
-                        className="form-check-input"
-                      />
-                      <label className="form-check-label pl-2" htmlFor="other">
-                        Other
-                      </label>
-                      <p className="help-block text-danger"></p>
-                    </div>
-                  </div>
-                  {/* </div> */}
                 </div>
                 <div className="row">
                   <div className="form-group col-md-7">
+                    <br />
+                    <h6>MESSAGE</h6>
                     <textarea
                       name="message"
                       id="message"

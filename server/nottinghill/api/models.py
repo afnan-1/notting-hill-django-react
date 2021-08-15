@@ -10,6 +10,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 import datetime
+from django.core.mail import EmailMultiAlternatives
+from django.template import RequestContext
+from django.template.loader import render_to_string
+from api.contact.models import NottingHillLawLogo
+from django.utils.html import strip_tags
 from .managers import CustomUserManager
 # Create your models here.
 
@@ -36,14 +41,21 @@ class CustomUser(AbstractUser):
 
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
-    email_plaintext_message = "{}/{}?token={}".format(settings.DOMAIN_NAME,'#users/password_reset/', reset_password_token.key)
-    send_mail(
-        # title:
-        "Password Reset for {title}".format(title="Notting Hill Law"),
-        # message:
-        email_plaintext_message,
-        # from:
+
+    logo = NottingHillLawLogo.objects.all()[0]
+    logo = settings.BACKEND_DOMAIN + logo.logo.url
+    html_content = render_to_string(
+        "reset_password_email.html",
+        {
+            "verification_link":"{}/{}?token={}".format(settings.DOMAIN_NAME,'#users/password_reset/', reset_password_token.key)
+        },
+    )
+    text_context = strip_tags(html_content)
+    email = EmailMultiAlternatives(
+        f'Password-Reset-Link for Notting Hill Law',
+        text_context,
         settings.EMAIL_HOST_USER,
-        # to:
         [reset_password_token.user.email]
     )
+    email.attach_alternative(html_content, "text/html")
+    email.send()

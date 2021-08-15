@@ -256,8 +256,8 @@ header .intro-text {
 
 /* Features Section */
 #features {
-  height: 100vh;
-  padding: 60px 0 ;
+  max-height: 100%;
+  padding: 150px 0 ;
   background: #f6f6f6;
   background-repeat: no-repeat;
   background-size: cover;

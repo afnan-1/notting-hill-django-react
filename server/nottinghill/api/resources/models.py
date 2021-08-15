@@ -1,22 +1,22 @@
 from django.db import models
 
 # Create your models here.
-class GuidesPdf(models.Model):
-    pdf = models.FileField()
-    title = models.CharField(max_length=200)
+class GuidesResources(models.Model):
+    thumbnail_title = models.CharField(max_length=200)
+    thumbnail_image = models.ImageField(null=True,blank=True,upload_to="guide_thumbnail")
     heading = models.CharField(max_length=500)
     heading_outline_paragraph = models.TextField()
-    pdf_image = models.ImageField(null=True, blank=True,default='/placeholder.png')
-    guide_image = models.ImageField(null=True,blank=True)
+    guide_pdf = models.FileField(upload_to="guide_pdf")
+    heading_image = models.ImageField(null=True, blank=True,default='/placeholder.png')
     def __str__(self):
-        return self.title
+        return self.thumbnail_title
 
 class GuidesPoint(models.Model):
-    guide = models.ForeignKey(GuidesPdf,on_delete=models.CASCADE,related_name='guide')
+    guide = models.ForeignKey(GuidesResources,on_delete=models.CASCADE,related_name='guide')
     point = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.guide.title
+        return self.guide.thumbnail_title
 
 
 class GuidesForm(models.Model):

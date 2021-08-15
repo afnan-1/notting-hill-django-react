@@ -1,0 +1,15 @@
+  
+{% extends 'base_email.html' %}
+
+{% block email_title_block %}
+{% endblock %}
+
+{% block email_content %}
+  Hi Moktar,<br/>Contact form submission application!<br/>
+ <strong> {{ name }} </strong> has message : {{ message }}. <br/>
+ <strong>Visa Application: </strong> {{visa_application}} <br/>
+ <strong>Phone Number: </strong> {{phone}} <br/>
+ <strong>Email: </strong> {{email}}
+{% endblock %}
+
+

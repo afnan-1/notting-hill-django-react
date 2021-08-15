@@ -47,7 +47,6 @@ export function Header() {
           <li className="nav-item active">
             <NavLink className="nav-link" exact to="/">
               Home
-              <span className="sr-only">(current)</span>
             </NavLink>
           </li>
           <li className="nav-item">

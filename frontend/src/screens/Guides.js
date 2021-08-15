@@ -36,7 +36,7 @@ function Guides({ location, match }) {
       {!loading && (
         <>
           {guide && (
-            <Container disableGutters style={{ maxWidth: "1500px" }}>
+            <Container disableGutters style={{ maxWidth: "2800px" }}>
               <Grid container className="mt-sm-5 mt-md-0">
                 <Grid
                   item
@@ -49,7 +49,7 @@ function Guides({ location, match }) {
                     <h2 className="h2 text-dark"> {guide.heading}</h2>
                     <span>{guide.heading_outline_paragraph}</span>
                     <div className="text-center text-md-left">
-                   <GuidesForm pdf={guide.pdf} /> 
+                   <GuidesForm pdf={guide.guide_pdf} /> 
                     </div>
                   </div>
                 </Grid>
@@ -63,8 +63,8 @@ function Guides({ location, match }) {
                   <div className="text-center mt-md-2 mt-sm-5 p-md-0 p-sm-3">
                     <img
                       className="img-fluid p-5 mt-md-5 "
-                      src={guide.guide_image}
-                      alt=""
+                      src={guide.heading_image}
+                      alt={guide.thumbnail_title}
                       width="350"
                     />
                   </div>
@@ -86,7 +86,7 @@ function Guides({ location, match }) {
                         ))}
                     </List>
                     <div className="text-center mt-md-4">
-                      <GuidesForm path={location.pathname} pdf={guide.pdf} />
+                      <GuidesForm path={location.pathname} pdf={guide.guide_pdf} />
                     </div>
                   </div>
                 </Grid>

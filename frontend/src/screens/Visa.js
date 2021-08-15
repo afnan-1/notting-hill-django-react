@@ -2,6 +2,7 @@ import React from "react";
 import VisaServices from "../components/VisaServices";
 import ScrollToTop from "../components/ScrollToTop";
 import { Container } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 function Visa(props) {
   document.title = props.title;
   return (
@@ -13,6 +14,7 @@ function Visa(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           paddingBottom: "200px",
+          height: "100vh",
         }}
       >
         <Container maxWidth="lg">

@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState,useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { Grid, LinearProgress } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { forgotPassword } from "../store/actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
+import { USER_FORGOT_RESET } from "../store/constants/userConstants";
 
 function ForgotPassword() {
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const userForgotPassword = useSelector((state) => state.userForgotPassword);
   const { loading, success, error } = userForgotPassword;
   document.title = "Forgot Password / Notting Hill Law"
@@ -15,6 +19,13 @@ function ForgotPassword() {
     e.preventDefault();
     dispatch(forgotPassword(email));
   };
+
+  useEffect(() => {
+   if(userInfo){
+     history.goBack()
+   }
+   dispatch({type:USER_FORGOT_RESET})
+  }, [])
   return (
     <div>
       {loading && <LinearProgress color="secondary" />}

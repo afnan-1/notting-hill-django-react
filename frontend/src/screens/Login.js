@@ -7,6 +7,8 @@ import Alert from "@material-ui/lab/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { login } from "../store/actions/userActions";
+import { USER_LOGOUT } from "../store/constants/userConstants";
+
 function Login({ location }) {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
@@ -16,11 +18,18 @@ function Login({ location }) {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (!userInfo) {
+      dispatch({type:USER_LOGOUT})
+    }
+  }, [])
+
   useEffect(() => {
     document.title = "Login / Notting Hill Law"
 
     if (userInfo) {
-      history.push("/");
+      history.goBack();
     }
   }, [userInfo, dispatch]);
   const handleChange = (e) => {

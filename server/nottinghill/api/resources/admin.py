@@ -11,4 +11,4 @@ class GuideAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(GuidesForm)
-admin.site.register(GuidesPdf,GuideAdmin)
+admin.site.register(GuidesResources,GuideAdmin)

@@ -3,25 +3,25 @@ from .serializers import GuidesFormSerializer, GuidesSerializer
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import GuidesForm, GuidesPdf
+from .models import GuidesForm, GuidesResources
 # Create your views here.
 @api_view(['GET'])
 def get_guides(request):
-    guides = GuidesPdf.objects.all()
+    guides = GuidesResources.objects.all()
     serializer = GuidesSerializer(guides,many=True,context={'request': request})
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def get_guide(request,id):
-    guide = GuidesPdf.objects.get(id=id)
+    guide = GuidesResources.objects.get(id=id)
     serializer = GuidesSerializer(guide,many=False,context={'request': request})
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def get_temp_guide(request):
-    guide = GuidesPdf.objects.order_by('?')
+    guide = GuidesResources.objects.order_by('?')
     try:
         guide = guide[0]
         serializer = GuidesSerializer(guide,many=False,context={'request': request})

@@ -16,7 +16,7 @@ function Footer() {
       <div id="footer">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-10 col-xs-10 footer-text">
+            <div className="col-md-10 col-xs-10 col-lg-11 footer-text">
               <p className='px-3'>
                 Copyright 2020 &copy; Notting Hill Law is registered with the
                 Office of The Immigration Services Commission (OISC) to provide
@@ -26,7 +26,7 @@ function Footer() {
                   {" "}
                   home.osic.gov.uk.{" "}
                 </a>
-                <br />
+                {/* <br /> */}
                 <span className="text-center">
                   {" "}
                   Notting Hill Law Ltd is a company registered in England,
@@ -38,7 +38,7 @@ function Footer() {
             </div>
 
             <div
-              className="col-md-2 col-xs-2"
+              className="col-md-2 col-lg-1 col-xs-2"
               style={{ display: "flex", justifyContent: "center" }}
             >
               <img
