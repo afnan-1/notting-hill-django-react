@@ -9,14 +9,11 @@ from rest_framework.response import Response
 # Create your views here.
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
-        attrs['email'] = attrs['email'].lower()
-        print(attrs)
+        # attrs['email'] = attrs['email'].lower()
         data = super().validate(attrs)
-
         serializer = UserSerializerWithToken(self.user).data
         for k, v in serializer.items():
             data[k] = v
-
         return data
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -26,6 +23,7 @@ class MyTokenObtainPairView(TokenObtainPairView):
 @api_view(['POST'])
 def register_user(request):
     data = request.data
+    print(data)
     try:
         user = CustomUser.objects.create(
             name=data['name'],
@@ -33,8 +31,11 @@ def register_user(request):
             email=data['email'].lower(),
             password=make_password(data['password'])
         )
+        
         serializer = UserSerializerWithToken(user, many=False)
+        print(serializer.data)
         return Response(serializer.data)
     except:
+        print("hello")
         message = {'detail': 'User with this email already exists'}
         return Response(message, status=400)

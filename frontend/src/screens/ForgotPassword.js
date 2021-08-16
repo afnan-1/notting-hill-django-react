@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Grid, LinearProgress } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
@@ -7,25 +7,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { USER_FORGOT_RESET } from "../store/constants/userConstants";
 
 function ForgotPassword() {
-  const history = useHistory()
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const userForgotPassword = useSelector((state) => state.userForgotPassword);
   const { loading, success, error } = userForgotPassword;
-  document.title = "Forgot Password / Notting Hill Law"
+  document.title = "Forgot Password / Notting Hill Law";
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(forgotPassword(email));
   };
 
   useEffect(() => {
-   if(userInfo){
-     history.goBack()
-   }
-   dispatch({type:USER_FORGOT_RESET})
-  }, [])
+    if (userInfo) {
+      history.goBack();
+    }
+    dispatch({ type: USER_FORGOT_RESET });
+  }, []);
   return (
     <div>
       {loading && <LinearProgress color="secondary" />}
@@ -37,7 +37,7 @@ function ForgotPassword() {
         >
           Forgot Password
         </h2>
-        <h6 className='text-light'>New Password</h6>{" "}
+        <h6 className="text-light">New Password</h6>{" "}
       </div>
       <div>
         <div className="px-5 py-2 col-md-6 col-sm-12 mx-auto">

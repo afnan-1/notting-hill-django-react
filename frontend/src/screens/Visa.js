@@ -14,7 +14,7 @@ function Visa(props) {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           paddingBottom: "200px",
-          height: "100vh",
+          minHeight: "100vh",
         }}
       >
         <Container maxWidth="lg">

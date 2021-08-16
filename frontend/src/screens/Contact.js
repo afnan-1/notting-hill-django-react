@@ -81,7 +81,7 @@ function Contact() {
       <div id="contact" className="px-4">
         <div className="ml-2 mx-auto row container">
           <div className="col-md-8">
-            <div className="container">
+            <div className="container p-0">
               <div className="section-title">
                 <h2>Contact Us</h2>
                 <p>
@@ -189,36 +189,64 @@ function Contact() {
                   {/* <div className="check-1"> */}
                   <div className="col-md-7">
                     <h6>WHAT ARE YOU INTERESTED IN?</h6>
-                    <select
-                      name="visa"
-                      onChange={handleChange}
-                      className="form-control contact__form"
-                    >
-                      <option selected>Select</option>
-                      <option value="GETTING MARRIED">
-                        1. GETTING MARRIED
-                      </option>
-                      <option value="STARTING A BUISNESS">
-                        2. STARTING A BUISNESS
-                      </option>
-                      <option value="INVESTING">3. INVESTING</option>
-                      <option value="WORKING IN THE UK">
-                        4. WORKING IN THE UK
-                      </option>
-                      <option value="STUDYING IN THE UK">
-                        5. STUDYING IN THE UK
-                      </option>
-                      <option value="STUDYING IN THE UK">
-                        6. BRITISH PASSPORT
-                      </option>
-                      <option value="VISITING IN THE UK">
-                        7. VISITING IN THE UK
-                      </option>
-                      <option value="SWITCHING TO ANOTHER VISA">
-                        8. SWITCHING TO ANOTHER VISA
-                      </option>
-                      <option value="OTHER">9. OTHER</option>
-                    </select>
+                    <div className="form-group">
+                      <select
+                        name="visa"
+                        onChange={handleChange}
+                        className="form-control contact__form"
+                        defaultValue="Select"
+                      >
+                        <option>Select</option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="GETTING MARRIED"
+                        >
+                          1. GETTING MARRIED
+                        </option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="STARTING A BUISNESS"
+                        >
+                          2. STARTING A BUISNESS
+                        </option>
+                        <option style={{ fontSize: "12px" }} value="INVESTING">
+                          3. INVESTING
+                        </option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="WORKING IN THE UK"
+                        >
+                          4. WORKING IN THE UK
+                        </option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="STUDYING IN THE UK"
+                        >
+                          5. STUDYING IN THE UK
+                        </option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="STUDYING IN THE UK"
+                        >
+                          6. BRITISH PASSPORT
+                        </option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="VISITING IN THE UK"
+                        >
+                          7. VISITING IN THE UK
+                        </option>
+                        <option
+                          style={{ fontSize: "12px" }}
+                          value="SWITCHING TO ANOTHER VISA"
+                        >
+                          8. SWITCHING TO ANOTHER VISA
+                        </option>
+                        <option style={{ fontSize: "12px" }} value="OTHER">
+                          9. OTHER
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div className="row">

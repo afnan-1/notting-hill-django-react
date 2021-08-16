@@ -12,10 +12,11 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-  USER_FORGOT_RESET
+  USER_FORGOT_RESET,
+  USER_REGISTER_RESET,
 } from "../constants/userConstants";
 
-export const userLoginReducer = (state = {userInfo:{}}, action) => {
+export const userLoginReducer = (state = { userInfo: {} }, action) => {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return { loading: true };
@@ -39,7 +40,7 @@ export const userForgotPasswordReducer = (state = {}, action) => {
     case USER_FORGOT_FAIL:
       return { loading: false, error: action.payload };
     case USER_FORGOT_RESET:
-      return {}
+      return {};
     default:
       return state;
   }
@@ -53,6 +54,7 @@ export const userResetPasswordReducer = (state = {}, action) => {
       return { loading: false, success: action.payload };
     case USER_RESET_FAIL:
       return { loading: false, error: action.payload };
+
     default:
       return state;
   }
@@ -66,6 +68,8 @@ export const userRegisterReducer = (state = {}, action) => {
       return { loading: false, user: action.payload };
     case USER_REGISTER_FAIL:
       return { loading: false, error: action.payload };
+    case USER_REGISTER_RESET:
+      return {};
     default:
       return state;
   }

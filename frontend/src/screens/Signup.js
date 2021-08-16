@@ -3,25 +3,27 @@ import Header from "../components/Header";
 import { Link, useHistory } from "react-router-dom";
 import { Grid, LinearProgress } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register } from "../store/actions/userActions";
+import { USER_REGISTER_RESET } from "../store/constants/userConstants";
 function Signup() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const userRegister = useSelector(state => state.userRegister)
-  const {loading,error,user} = userRegister
-  const userLogin = useSelector(state=>state.userLogin)
-  const {userInfo} = userLogin
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, error, user } = userRegister;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   useEffect(() => {
-    document.title = "Sign up / Notting Hill Law"
+    document.title = "Sign up / Notting Hill Law";
 
-   if (userInfo){
-     history.push('/')
-   }
-   if (user){
-     history.push('/login')
-   }
-  }, [userInfo,userLogin,user]);
+    if (userInfo) {
+      history.push("/");
+    }
+    if (user) {
+      history.push("/login");
+    }
+    dispatch({ type: USER_REGISTER_RESET });
+  }, [userInfo, userLogin, user]);
   const [userData, setuserData] = useState({
     name: "",
     email: "",
@@ -33,7 +35,7 @@ function Signup() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(register(userData))
+    dispatch(register(userData));
   };
   return (
     <>
@@ -55,8 +57,10 @@ function Signup() {
       </div>
       <div className="">
         <div className="px-5 py-2 col-md-6 col-sm-12 mx-auto">
-        {userInfo && <Alert severity={"success"} >Registered successfully.</Alert>}
-        {error && <Alert severity={"error"} >{error}</Alert>}
+          {userInfo && (
+            <Alert severity={"success"}>Registered successfully.</Alert>
+          )}
+          {error && <Alert severity={"error"}>{error}</Alert>}
           <Grid container direction="column">
             <form onSubmit={handleSubmit}>
               <div class="form-group">
