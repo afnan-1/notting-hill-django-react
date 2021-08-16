@@ -97,16 +97,16 @@ function GuidesForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const link = document.createElement("a");
-    link.target = '_blank';
     link.href = props.pdf;
-
+    link.target = "_blank"
+    link.download = props.title
     // Append to the document
     document.body.appendChild(link);
 
     // Trigger the click event
     link.click();
     // Remove the element
-    document.body.removeChild(link);
+    // document.body.removeChild(link);
     dispatch(addGuidesForm(body));
   };
   return (
@@ -227,7 +227,6 @@ function GuidesForm(props) {
                   </TextField>
                 </Grid>
               </Grid>
-
               <Button
                 fullWidth
                 variant="contained"

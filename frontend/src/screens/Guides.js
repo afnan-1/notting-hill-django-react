@@ -49,7 +49,7 @@ function Guides({ location, match }) {
                     <h2 className="h2 text-dark"> {guide.heading}</h2>
                     <span>{guide.heading_outline_paragraph}</span>
                     <div className="text-center text-md-left">
-                   <GuidesForm pdf={guide.guide_pdf} /> 
+                   <GuidesForm pdf={guide.guide_pdf} title={guide.thumbnail_title} /> 
                     </div>
                   </div>
                 </Grid>
@@ -86,7 +86,7 @@ function Guides({ location, match }) {
                         ))}
                     </List>
                     <div className="text-center mt-md-4">
-                      <GuidesForm path={location.pathname} pdf={guide.guide_pdf} />
+                      <GuidesForm path={location.pathname} title={guide.thumbnail_title} pdf={guide.guide_pdf} />
                     </div>
                   </div>
                 </Grid>
